@@ -1,0 +1,5 @@
+.DS_Store
+.taste-skill/
+build/*.bak
+node_modules/
+.vercel

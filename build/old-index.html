@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wayne's Plant Hire World | Plant equipment hire in Randfontein, West Rand</title>
+<meta name="description" content="Excavators, dozers, TLBs, tippers and lowbeds for hire in Randfontein. Delivered across the West Rand with an experienced operator. Get a quote on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!--
+  TRACKING (disabled in this concept so demo visits don't pollute the client's analytics).
+  Re-enable on launch. IDs taken from the live site:
+  GTM container  GTM-MBTGFM3W
+  GA4            G-9SSDZRN18E
+  Google Ads     AW-18143384715 (+ call tracking)
+  Meta Pixel     828652826523731
+  Microsoft Clarity  wsz13hzbuz
+  The quote form pushes dataLayer event "generate_lead" and fires fbq('track','Lead') when present.
+-->
+
+<style>
+:root{
+  --bg:#020817;          /* Deep Navy */
+  --surface:#1A2540;     /* Charcoal Blue */
+  --surface-2:#0E1830;
+  --ink:#F4F7FD;
+  --soft:#B4C0D6;
+  --steel:#6B7C99;
+  --blue:#3083E8;        /* Brand Blue: actions */
+  --amber:#F59E0B;       /* Construction Amber: accent on dark */
+  --frost:#EEF3FB;
+  --m:clamp(16px,2.4vw,36px);
+  --gap:clamp(88px,11vw,180px);
+  --d:'Barlow Condensed',system-ui,sans-serif;
+  --t:'DM Sans',system-ui,sans-serif;
+  --s-display:clamp(60px,13.4vw,236px);
+  --s-h2:clamp(44px,7vw,120px);
+  --s-statement:clamp(30px,4.1vw,68px);
+  --s-lead:24px;
+  --s-body:18px;
+  --s-small:14px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--s-body)/1.55 var(--t);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-family:var(--d);font-weight:800;letter-spacing:-.025em;line-height:.95}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+::selection{background:var(--blue);color:var(--bg)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* buttons: one shape, square corners */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:56px;padding:0 30px;background:var(--blue);color:var(--bg);font:700 18px/1 var(--t);text-decoration:none;border:0;cursor:pointer;transition:background .25s,transform .3s var(--ease);will-change:transform}
+.btn:hover{background:#5fa3f2}
+.btn:active{transform:scale(.98)}
+.btn.alt{background:var(--surface);color:var(--ink)}
+.btn.alt:hover{background:#243456}
+.link{font-weight:700;text-underline-offset:.22em;text-decoration-thickness:2px;transition:color .2s}
+.link:hover{color:var(--amber)}
+
+/* progress */
+.prog{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--amber);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px var(--m);transition:background .4s,padding .4s}
+.nav.solid{background:rgba(2,8,23,.96);padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 26px/1 var(--d);letter-spacing:-.005em}
+.brand img{width:52px;height:52px;transition:width .4s,height .4s}
+.nav.solid .brand img{width:44px;height:44px}
+.nav ul{display:flex;gap:clamp(18px,3vw,44px);list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;font-weight:500;padding:8px 0;transition:color .2s}
+.nav ul a:hover{color:var(--amber)}
+.nav .btn{min-height:46px;padding:0 22px;font-size:16px}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:150px var(--m) clamp(28px,4vw,56px);overflow:hidden;isolation:isolate}
+.hbg{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hbg .pz{position:absolute;inset:-6% 0 -6% 0}
+.hbg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.8s ease;transform:scale(1.05)}
+.hbg img.on{opacity:1;animation:kb 12s linear forwards}
+@keyframes kb{to{transform:scale(1.16)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(2,8,23,.55)}
+.hero h1{font-size:var(--s-display);line-height:.86;letter-spacing:-.03em;color:#fff}
+.hero h1 .hl{display:block;white-space:nowrap;overflow:hidden;padding-bottom:.06em}
+.hero h1 .hl>span{display:block}
+.hfoot{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:clamp(28px,3.4vw,52px);align-items:end}
+.hfoot .copy{grid-column:1/span 6}
+.hfoot p{font-size:clamp(19px,1.7vw,26px);line-height:1.4;max-width:30em;color:#fff}
+.hfoot .acts{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:24px}
+.hfoot .hrs{grid-column:9/span 4;background:var(--bg);padding:22px 24px;display:grid;gap:4px;align-self:end}
+.hrs b{font:700 24px/1.1 var(--d);letter-spacing:.01em}
+.hrs span{color:var(--soft);font-size:16px}
+.hrs .on{color:var(--amber);font-weight:700}
+.scroll{position:absolute;right:var(--m);top:50%;writing-mode:vertical-rl;font-weight:500;font-size:14px;color:#fff;display:flex;align-items:center;gap:14px}
+.scroll i{display:block;width:4px;height:64px;background:var(--amber);animation:dn 2s var(--ease) infinite}
+@keyframes dn{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* marquee */
+.mq{background:var(--surface);overflow:hidden;white-space:nowrap;padding:22px 0}
+.mq-track{display:inline-flex;animation:mq 46s linear infinite}
+.mq-track::before,.mq-track::after{content:attr(data-t);font:800 clamp(34px,5vw,76px)/1 var(--d);letter-spacing:-.01em;word-spacing:.15em}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* stats */
+.stats{padding:var(--gap) var(--m) calc(var(--gap)*.6)}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.fig b{display:block;font:800 clamp(88px,15vw,250px)/.82 var(--d);letter-spacing:-.04em;color:var(--ink);white-space:nowrap}
+.fig b em{font-style:normal;color:var(--amber)}
+.fig span{display:block;margin-top:14px;font-size:clamp(18px,1.6vw,24px);color:var(--soft);max-width:12em;line-height:1.3}
+.stats .lede{margin:clamp(48px,6vw,96px) 0 0 calc(100%/12*4);max-width:30em;font:500 clamp(24px,2.5vw,38px)/1.2 var(--d);color:var(--soft)}
+.stats .lede strong{color:var(--ink);font-weight:700}
+
+/* reasons */
+.why{padding:calc(var(--gap)*.6) var(--m) var(--gap);display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.why h2{grid-column:1/-1;font-size:var(--s-h2);letter-spacing:-.035em;line-height:.92;margin-bottom:clamp(36px,5vw,72px)}
+.rlist{grid-column:1/span 7;list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rrow{width:100%;text-align:left;background:var(--surface-2);color:var(--soft);border:0;cursor:pointer;padding:clamp(18px,2.2vw,32px) clamp(18px,2.4vw,36px);display:grid;gap:6px;font:inherit;transition:background .35s,color .35s,transform .45s var(--ease)}
+.rrow strong{font:700 clamp(30px,3.5vw,54px)/1 var(--d);letter-spacing:-.015em;color:var(--ink);display:flex;justify-content:space-between;gap:20px;align-items:center}
+.rrow strong::after{content:"→";font:400 .7em var(--t);color:var(--steel);transition:color .3s,transform .4s var(--ease)}
+.rrow span{font-size:clamp(16px,1.3vw,19px);max-width:34em;line-height:1.45}
+.rrow[aria-current=true]{background:var(--surface);color:var(--ink);transform:translateX(10px)}
+.rrow[aria-current=true] strong::after{color:var(--amber);transform:translateX(6px)}
+.rrow .rt{display:none}
+.rpanel{grid-column:8/span 5;position:sticky;top:100px;aspect-ratio:4/5;overflow:hidden;background:var(--surface)}
+.rpanel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .7s,transform 1.4s var(--ease)}
+.rpanel img.on{opacity:1;transform:scale(1)}
+
+/* fleet */
+.fleet{padding:0 var(--m) var(--gap)}
+.fh{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.fh h2{grid-column:1/span 7;font-size:var(--s-h2);letter-spacing:-.035em;line-height:.92}
+.fh p{grid-column:8/span 5;color:var(--soft);font-size:var(--s-lead);line-height:1.4;max-width:24em}
+.fgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.stage{grid-column:1/span 7;position:sticky;top:92px}
+.stage .ph{aspect-ratio:4/3;overflow:hidden;background:var(--surface);position:relative}
+.stage .ph img{width:100%;height:100%;object-fit:cover;transition:opacity .35s,transform 1.4s var(--ease)}
+.stage .ph img.swap{opacity:0;transform:scale(1.06)}
+.stage .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.tg{background:var(--surface);color:var(--ink);font-weight:700;font-size:14px;padding:6px 12px}
+.tg.hot{background:var(--amber);color:var(--bg)}
+.stage h3{font-size:var(--s-statement);margin:26px 0 4px;letter-spacing:-.02em}
+.stage .what{color:var(--soft);margin-bottom:12px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tile{background:var(--surface-2);padding:16px 18px}
+.tile b{display:block;font:800 clamp(34px,3.4vw,54px)/1 var(--d);letter-spacing:-.02em;color:var(--ink)}
+.tile span{display:block;color:var(--soft);font-size:14px;margin-top:6px}
+.meta{display:grid;gap:6px;margin-top:16px;color:var(--soft)}
+.meta b{color:var(--ink);font-weight:700}
+.stage .btn{margin-top:20px}
+.pick{grid-column:9/span 4}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{min-height:44px;padding:0 18px;background:var(--surface);color:var(--ink);border:0;font:500 16px/1 var(--t);cursor:pointer;transition:background .2s}
+.chip:hover{background:#243456}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);font-weight:700}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.list li{display:grid;grid-template-columns:1fr auto;gap:6px}
+.row{width:100%;display:flex;gap:14px;align-items:center;text-align:left;background:var(--surface-2);color:var(--ink);border:0;padding:8px 14px 8px 8px;cursor:pointer;font:inherit;transition:background .2s,transform .35s var(--ease)}
+.row:hover{background:var(--surface);transform:translateX(4px)}
+.row[aria-current=true]{background:var(--surface);border-left:6px solid var(--amber);padding-left:2px}
+.row img{width:68px;height:52px;object-fit:cover;flex:none}
+.row .n{font:700 21px/1.1 var(--d);letter-spacing:.005em;display:block}
+.row .k{display:block;color:var(--soft);font-size:14px;margin-top:2px}
+.tog{min-width:52px;min-height:68px;padding:0 14px;background:transparent;color:var(--ink);border:2px solid var(--steel);font:700 15px/1 var(--t);cursor:pointer;transition:background .2s,border-color .2s}
+.tog:hover{border-color:var(--ink)}
+.tog[aria-pressed=true]{background:var(--amber);border-color:var(--amber);color:var(--bg)}
+
+/* gallery strips */
+.gal{padding:0 0 var(--gap);overflow:hidden}
+.gal h2{font-size:var(--s-h2);letter-spacing:-.035em;line-height:.92;padding:0 var(--m);margin-bottom:clamp(36px,5vw,64px)}
+.strip{overflow:hidden;white-space:nowrap}
+.strip+.strip{margin-top:12px}
+.st-track{display:inline-flex;gap:12px;animation:mq 70s linear infinite;padding-right:12px}
+.strip.rev .st-track{animation-direction:reverse;animation-duration:85s}
+.strip:hover .st-track{animation-play-state:paused}
+.st-track img{width:clamp(280px,30vw,480px);height:clamp(200px,22vw,340px);object-fit:cover;flex:none}
+
+/* how: one verb at a time */
+.vp{position:relative;min-height:92svh;display:grid;align-items:center;justify-items:start;overflow:hidden;padding:var(--m)}
+.vp .im{position:absolute;inset:-8% 0 -8% 0}
+.vp .im img{width:100%;height:100%;object-fit:cover}
+.vp::before{content:"";position:absolute;inset:0;background:rgba(2,8,23,.58);z-index:1}
+.vp .v{position:relative;z-index:2;font:800 clamp(110px,24vw,420px)/.8 var(--d);letter-spacing:-.04em;color:#fff;width:100%;text-align:center;padding-block:40px}
+.vp p{position:absolute;z-index:2;left:var(--m);bottom:var(--m);max-width:30em;font-size:clamp(18px,1.5vw,22px);line-height:1.45;background:var(--bg);padding:18px 22px}
+
+/* quote */
+.quote{padding:var(--gap) var(--m);display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.quote .intro{grid-column:1/span 6}
+.quote h2{font-size:var(--s-h2);letter-spacing:-.035em;line-height:.92}
+.quote .intro p{margin-top:26px;color:var(--soft);max-width:26em;font-size:var(--s-lead);line-height:1.4}
+.quote .qimg{margin-top:36px;aspect-ratio:16/10;overflow:hidden;max-width:620px}
+.quote .qimg img{width:100%;height:100%;object-fit:cover}
+form{grid-column:8/span 5;display:grid;gap:18px;background:var(--surface-2);padding:clamp(22px,3vw,40px)}
+label{display:grid;gap:8px;font-weight:700}
+input{min-height:56px;padding:0 16px;background:var(--bg);color:var(--ink);border:2px solid transparent;font:400 18px/1 var(--t);width:100%;border-radius:0;transition:border-color .2s}
+input:focus{outline:none;border-color:var(--blue)}
+input::placeholder{color:var(--steel)}
+.sel{min-height:56px;padding:8px;background:var(--bg);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sel .none{color:var(--steel);padding:0 8px}
+.tag{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 6px 0 12px;background:var(--surface);font-weight:500;font-size:16px}
+.tag button{min-width:32px;min-height:32px;background:none;border:0;color:var(--soft);font-size:20px;cursor:pointer}
+.tag button:hover{color:var(--amber)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.formacts{display:grid;gap:12px;margin-top:6px}
+.formacts .btn{width:100%}
+.formacts .alt{min-height:48px}
+.note{font-size:var(--s-small);color:var(--soft)}
+
+/* about */
+.about{padding:calc(var(--gap)*.5) var(--m) calc(var(--gap)*.7);display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.facts{grid-column:1/span 2;font-size:var(--s-small);color:var(--soft);display:grid;gap:18px;align-content:start}
+.facts b{display:block;color:var(--ink);font-size:16px}
+.bio{grid-column:3/span 10}
+.bio p{font:500 clamp(24px,2.5vw,38px)/1.2 var(--d);letter-spacing:-.005em;color:var(--soft)}
+.bio p+p{margin-top:1.1em}
+.bio strong{color:var(--ink);font-weight:700}
+.bio img{float:left;width:3.6em;height:3.6em;object-fit:cover;margin:0 .5em .2em 0;font-size:clamp(24px,2.5vw,38px);line-height:1.2}
+.bio .tag-line{margin-top:1.1em;color:var(--ink);font-weight:800;font-size:1.4em}
+
+/* faq */
+.faq{padding:0 var(--m) var(--gap)}
+.faq h2{font-size:var(--s-h2);letter-spacing:-.035em;line-height:.92;max-width:12em}
+.faq .qs{margin:clamp(48px,6vw,80px) 0 0 calc(100%/12*4);display:grid;gap:12px}
+.faq details{padding:18px 24px;transition:background .25s}
+.faq details[open]{background:var(--surface-2)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;font:700 clamp(22px,2vw,28px)/1.2 var(--d);min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 32px/1 var(--t);color:var(--amber);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:12px;max-width:48ch;color:var(--soft);font-size:17px}
+
+/* cta inverted */
+.cta{background:var(--frost);color:var(--bg);padding:var(--gap) var(--m);display:flex;flex-direction:column;gap:clamp(48px,7vw,110px)}
+.cta h2{font-size:clamp(64px,11vw,200px);line-height:.88;letter-spacing:-.04em;max-width:10em}
+.cta .bar{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}
+.cta .bar p{grid-column:1/span 5;font-size:20px;line-height:1.4}
+.cta .bar .btn{grid-column:10/span 3;justify-self:end}
+
+/* contact */
+.contact{padding:var(--gap) var(--m);display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.contact p.s{grid-column:1/span 6;font:500 var(--s-statement)/1.05 var(--d);letter-spacing:-.005em}
+.contact .pic{grid-column:8/span 2}
+.contact .pic img{width:100%;max-width:170px;aspect-ratio:1;object-fit:cover}
+.contact .who{grid-column:10/span 3;display:grid;gap:10px;align-content:start}
+.contact .who strong{font-weight:700;font-size:18px}
+.contact .who a{font-size:18px;font-weight:500}
+.contact .who span{font-size:var(--s-small);color:var(--soft);margin-top:6px}
+
+/* footer inverted */
+footer{background:var(--frost);color:var(--bg);padding:var(--gap) var(--m) var(--m);position:relative;overflow:hidden}
+footer .top{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-bottom:clamp(64px,9vw,140px)}
+footer h2{grid-column:1/span 7;font-size:clamp(42px,5.4vw,92px);line-height:.92}
+footer .btn{margin-top:28px}
+footer .ln{grid-column:10/span 3;display:grid;gap:10px;align-content:start;font-size:18px;font-weight:500}
+footer .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:var(--s-small);padding-bottom:12px;position:relative;z-index:2;font-weight:500}
+footer .mark{font:800 clamp(150px,33vw,640px)/.74 var(--d);letter-spacing:-.045em;white-space:nowrap;transform:translateY(24%);user-select:none;color:var(--bg);margin-left:-.03em}
+
+/* whatsapp float */
+.wa{position:fixed;right:18px;bottom:18px;z-index:40;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;transition:transform .3s var(--ease)}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:32px;height:32px;fill:var(--bg)}
+
+/* motion states (only when GSAP is present) */
+.anim .rv{opacity:0;transform:translateY(32px)}
+.anim .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.anim .w>span{display:inline-block;transform:translateY(112%)}
+.anim .hero h1 .hl>span{transform:translateY(112%)}
+.anim .hero .hfoot>*{opacity:0}
+
+@media (max-width:1000px){
+  .nav ul{display:none}
+  .hfoot .copy,.hfoot .hrs{grid-column:1/-1}
+  .scroll{display:none}
+  .fh h2,.fh p{grid-column:1/-1}
+  .stage,.pick,.rlist,.rpanel{grid-column:1/-1}
+  .stage{position:static}
+  .rpanel{display:none}
+  .rrow .rt{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;margin-top:12px}
+  .rrow[aria-current=true]{transform:none}
+  .stats .lede{margin-left:0}
+  .quote .intro,form{grid-column:1/-1}
+  .facts,.bio{grid-column:1/-1}.facts{grid-auto-flow:column;grid-template-columns:repeat(3,1fr);margin-bottom:12px}
+  .faq .qs{margin-left:0}
+  .cta .bar p,.cta .bar .btn{grid-column:1/-1;justify-self:stretch}
+  .contact p.s,.contact .pic,.contact .who{grid-column:1/-1}
+  footer h2,footer .ln{grid-column:1/-1}
+}
+@media (max-width:640px){
+  .hero{padding-top:110px}
+  .hfoot .btn{width:100%}
+  .hfoot .acts{flex-direction:column;align-items:stretch}
+  .brand span{display:none}
+  .figs{grid-template-columns:1fr;gap:36px}
+  .two{grid-template-columns:1fr}
+  .tiles{grid-template-columns:1fr 1fr 1fr}
+  .vp p{right:var(--m);max-width:none}
+  .contact .pic img{max-width:96px}
+  .bio img{width:4.2em;height:4.2em}
+  .wa{width:54px;height:54px}
+}
+@media (prefers-reduced-motion:reduce){
+  .mq-track,.st-track,.scroll i,.hbg img.on{animation:none!important}
+  .st-track{overflow-x:auto}
+  .btn,.row,.rrow{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Wayne's Plant Hire World, home"><img src="img/logo.png" alt="" width="52" height="52"><span>Wayne's Plant Hire</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="#fleet">Fleet</a></li>
+    <li><a href="#why">Why Wayne's</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul></nav>
+  <a class="btn" href="#quote" data-mag>Get a quote</a>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="hbg" id="hbg"><div class="pz" id="pz"></div></div>
+  <h1 id="h1">
+    <span class="hl"><span>Reliability in</span></span>
+    <span class="hl"><span>every move.</span></span>
+  </h1>
+  <div class="hfoot">
+    <div class="copy">
+      <p>Your one-stop plant equipment hire in Randfontein. Excavators, dozers, TLBs, tippers and lowbeds, delivered across the West Rand with an experienced operator.</p>
+      <div class="acts">
+        <a class="btn" href="#quote" data-mag>Get a quote</a>
+        <a class="link" href="#fleet">View equipment</a>
+        <a class="link" href="tel:+27832970639">Call 083 297 0639</a>
+      </div>
+    </div>
+    <div class="hrs">
+      <b>Randfontein &amp; the West Rand</b>
+      <span>Mon to Fri, 07:30 to 17:00</span>
+      <span class="on">WhatsApp and email answered 24 hours</span>
+    </div>
+  </div>
+  <div class="scroll" aria-hidden="true"><i></i>Scroll</div>
+</section>
+
+<div class="mq" aria-hidden="true"><div class="mq-track" data-t="Excavators ● Dozers ● TLBs ● Tippers ● Lowbeds ● Loggers ● Rollers ● Tractors ● Front loaders ● Crane trucks ● "></div></div>
+
+<section class="stats" aria-labelledby="stats-h">
+  <h2 class="vh" id="stats-h">Wayne's in numbers</h2>
+  <div class="figs">
+    <div class="fig"><b><em data-count="10">10</em>+</b><span>years of experience</span></div>
+    <div class="fig"><b><em data-count="50">50</em>+</b><span>fleet machines</span></div>
+    <div class="fig"><b><em>24</em>/7</b><span>breakdown support and service</span></div>
+  </div>
+  <p class="lede rv">Wayne's Plant Hire World provides <strong>comprehensive earthmoving and construction equipment solutions.</strong> We pride ourselves on reliability, quality maintenance, and professional service.</p>
+</section>
+
+<section class="why" id="why" aria-labelledby="why-h">
+  <h2 id="why-h" data-split>Why contractors call Wayne's.</h2>
+  <ul class="rlist" id="rlist">
+    <li><button class="rrow" type="button" data-i="0"><strong>Well-maintained, reliable machinery</strong><span>Regular, rigorous maintenance for maximum uptime.</span><img class="rt" src="img/komatsu-20t-excavator.jpg" alt="" loading="lazy"></button></li>
+    <li><button class="rrow" type="button" data-i="1"><strong>Experienced and certified operators</strong><span>Machines come with skilled, experienced operators.</span><img class="rt" src="img/cat-428f.jpg" alt="" loading="lazy"></button></li>
+    <li><button class="rrow" type="button" data-i="2"><strong>Competitive daily and monthly rates</strong><span>Flexible rental terms, available for a day or a year.</span><img class="rt" src="img/komatsu-wa420.jpg" alt="" loading="lazy"></button></li>
+    <li><button class="rrow" type="button" data-i="3"><strong>Rapid delivery across the West Rand</strong><span>Delivery to Randfontein and the West Rand using our own lowbeds and tippers.</span><img class="rt" src="img/ud-lowbed-36t.jpg" alt="" loading="lazy"></button></li>
+    <li><button class="rrow" type="button" data-i="4"><strong>24/7 breakdown support and service</strong><span>Downtime on a project is lost money, so when something stops we pick up the phone.</span><img class="rt" src="img/cat-422e.jpg" alt="" loading="lazy"></button></li>
+  </ul>
+  <div class="rpanel" id="rpanel" aria-hidden="true">
+    <img src="img/komatsu-20t-excavator.jpg" alt="" class="on" style="object-position:50% 30%">
+    <img src="img/cat-428f.jpg" alt="" style="object-position:50% 55%">
+    <img src="img/komatsu-wa420.jpg" alt="" style="object-position:55% 50%">
+    <img src="img/ud-lowbed-36t.jpg" alt="" style="object-position:50% 55%">
+    <img src="img/cat-422e.jpg" alt="" style="object-position:55% 55%">
+  </div>
+</section>
+
+<section class="fleet" id="fleet" aria-labelledby="fleet-h">
+  <div class="fh">
+    <h2 id="fleet-h" data-split>Pick your machine.</h2>
+    <p class="rv">19 machines on the hire list. Tap one to see it up close, then add it to your quote. Rates are confirmed per job.</p>
+  </div>
+  <div class="fgrid">
+    <div class="stage" id="stage" aria-live="polite">
+      <div class="ph"><img id="st-img" src="" alt="" width="1400" height="1050"></div>
+      <h3 id="st-name"></h3>
+      <p class="what" id="st-what"></p>
+      <div class="tiles" id="st-tiles"></div>
+      <div class="meta" id="st-meta"></div>
+      <div class="tags" id="st-tags"></div>
+      <button class="btn" id="st-add" type="button"></button>
+    </div>
+    <div class="pick">
+      <div class="chips" id="chips" role="group" aria-label="Filter by type"></div>
+      <ul class="list" id="list"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="gal" aria-labelledby="gal-h">
+  <h2 id="gal-h" data-split>Out on site.</h2>
+  <div class="strip" aria-hidden="true"><div class="st-track" id="s1"></div></div>
+  <div class="strip rev" aria-hidden="true"><div class="st-track" id="s2"></div></div>
+</section>
+
+<section class="verbs" id="how" aria-labelledby="how-h">
+  <h2 class="vh" id="how-h">How hiring from Wayne's works</h2>
+  <div class="vp">
+    <div class="im"><img src="img/cat-428f.jpg" alt="Cat 428F backhoe loader on a West Rand site" style="object-position:50% 55%" loading="lazy"></div>
+    <div class="v">Choose.</div>
+    <p>Pick what the job needs from the fleet, or call and we'll size it with you.</p>
+  </div>
+  <div class="vp">
+    <div class="im"><img src="img/komatsu-d85a-dozer.jpg" alt="Komatsu D85A dozer loaded on a lowbed" loading="lazy"></div>
+    <div class="v">Deliver.</div>
+    <p>We bring it to your site anywhere on the West Rand, with an experienced operator included.</p>
+  </div>
+  <div class="vp">
+    <div class="im"><img src="img/hyundai-22t-excavator.jpg" alt="Hyundai 22 ton excavator digging out a foundation" loading="lazy"></div>
+    <div class="v">Dig.</div>
+    <p>Your operator gets to work. If anything stops, breakdown support is on call 24/7.</p>
+  </div>
+</section>
+
+<section class="quote" id="quote" aria-labelledby="q-h">
+  <div class="intro">
+    <h2 id="q-h" data-split>Tell us where and when.</h2>
+    <p class="rv">Four details and it lands on Wayne's WhatsApp with your machines already listed. We reply with availability and a rate.</p>
+    <div class="qimg rv"><img src="img/cat-422e.jpg" alt="Cat 428E backhoe loader riding a Wayne's tilt-bed truck" loading="lazy"></div>
+  </div>
+  <form id="qf" class="rv" novalidate>
+    <div>
+      <label for="sel-box">Machines</label>
+      <div class="sel" id="sel-box" role="list" aria-live="polite"></div>
+    </div>
+    <div class="two">
+      <label>Start date<input type="date" id="f-date" name="date"></label>
+      <label>Site or town<input type="text" id="f-site" name="site" placeholder="Randfontein, Mohlakeng…" autocomplete="off"></label>
+    </div>
+    <div class="two">
+      <label>Your name<input type="text" id="f-name" name="name" autocomplete="name" placeholder="Name"></label>
+      <label>Phone<input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="082 000 0000"></label>
+    </div>
+    <div class="formacts">
+      <button class="btn" type="submit" id="send-wa" data-mag>Send on WhatsApp</button>
+      <a class="btn alt" id="send-mail" href="mailto:zee@waynesplanthireworld.co.za">Email it instead</a>
+    </div>
+    <p class="note" id="q-note">Open Mon to Fri, 07:30 to 17:00. WhatsApp and email are answered 24 hours.</p>
+  </form>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-h">
+  <h2 class="vh" id="about-h">About Wayne's Plant Hire World</h2>
+  <div class="facts">
+    <p><b>Randfontein</b>46 Steyr Street</p>
+    <p><b>10+ years</b>in plant hire</p>
+    <p><b>50+ machines</b>in the fleet</p>
+  </div>
+  <div class="bio">
+    <p class="rv"><img src="img/bell-225.jpg" alt="Bell 225 logger at work" loading="lazy"><strong>Wayne's Plant Hire World</strong> was founded to provide well-maintained construction and earthmoving equipment to contractors and developers across the West Rand. We know downtime on a project is lost money.</p>
+    <p class="rv">Based in Randfontein, we're positioned to deliver quickly to your site. The fleet has grown to include dozers, excavators, graders and specialised trucks, all backed by 24/7 breakdown support.</p>
+    <p class="tag-line">Reliability in every move.</p>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-h">
+  <h2 id="faq-h" data-split>Questions we get asked.</h2>
+  <div class="qs">
+    <details><summary>Does an operator come with the machine?</summary><p>Yes. Machines come with skilled, experienced operators. If you have your own certified operator, tell us when you ask for the quote.</p></details>
+    <details><summary>Which areas do you deliver to?</summary><p>Randfontein and the surrounding West Rand, using our own lowbeds and tippers. If your site is further out, send the town and we'll confirm.</p></details>
+    <details><summary>How long can I hire for?</summary><p>For a day or for a year. Flexible rental terms, with competitive daily and monthly rates.</p></details>
+    <details><summary>When are you open?</summary><p>Monday to Friday, 07:30 to 17:00. WhatsApp and email enquiries are answered 24 hours.</p></details>
+    <details><summary>What if a machine breaks down?</summary><p>Call us. Breakdown support and service run 24/7.</p></details>
+    <details><summary>What do you need for a quote?</summary><p>The machine you want, the start date, where the site is, and a phone number. The form above takes under a minute.</p></details>
+  </div>
+</section>
+
+<section class="cta" aria-labelledby="cta-h">
+  <h2 id="cta-h" data-split>Need it on site tomorrow?</h2>
+  <div class="bar">
+    <p>Tell us the machine and the site. We'll tell you if we can be there.</p>
+    <a class="btn" href="#quote" data-mag>Get a quote</a>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-label="Contact">
+  <p class="s rv">Enquiries welcome, any day of the week.</p>
+  <div class="pic rv"><img src="img/bobcat-135.jpg" alt="Bobcat 135 mini excavator" loading="lazy"></div>
+  <div class="who rv">
+    <strong>Ready when you are.</strong>
+    <a href="tel:+27832970639">083 297 0639</a>
+    <a href="tel:+27832663871">083 266 3871</a>
+    <a href="mailto:zee@waynesplanthireworld.co.za">zee@waynesplanthireworld.co.za</a>
+    <span>46 Steyr Street, Randfontein, Gauteng. Mon to Fri, 07:30 to 17:00. WhatsApp and email: 24 hours.</span>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="top">
+    <div style="grid-column:1/span 7">
+      <h2>Call Wayne's today.</h2>
+      <a class="btn" href="https://wa.me/27832970639?text=Hello%2C%20I%20am%20interested%20in%20your%20plant%20equipment%20hire%20services." data-mag>WhatsApp us</a>
+    </div>
+    <div class="ln">
+      <a class="link" href="tel:+27832970639">083 297 0639</a>
+      <a class="link" href="mailto:zee@waynesplanthireworld.co.za">Email</a>
+      <a class="link" href="#fleet">Fleet</a>
+      <a class="link" href="#quote">Quote</a>
+    </div>
+  </div>
+  <div>
+    <div class="legal"><span>© 2026 Wayne's Plant Hire World. Delivery throughout Randfontein and surrounding West Rand areas.</span><a class="link" href="/privacy-policy">Privacy policy</a></div>
+    <div class="mark" aria-hidden="true">WAYNE'S</div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/27832970639?text=Hello%2C%20I%20am%20interested%20in%20your%20plant%20equipment%20hire%20services." aria-label="WhatsApp Wayne's Plant Hire"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.8 2 6.8L3 29l6.6-1.9c1.9 1 4 1.6 6.3 1.6 7.2 0 13-5.8 13-12.9S23.200 3 16 3zm0 23.600c-2 0-3.900-.6-5.500-1.600l-.4-.2-3.900 1.100 1.100-3.800-.3-.4c-1.200-1.700-1.800-3.600-1.800-5.700C5.200 9.900 10 5.200 16 5.200s10.800 4.700 10.800 10.600S22 26.600 16 26.600zm5.900-7.900c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-1.900-.9-3.200-1.700-4.400-3.800-.3-.6.300-.5.900-1.600.1-.2.100-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1.100 1.100-1.100 2.600s1.100 3 1.300 3.200c.2.200 2.200 3.400 5.400 4.700 2 .8 2.800.9 3.800.7.600-.1 1.900-.8 2.200-1.500.3-.8.300-1.400.2-1.500 0-.2-.3-.3-.6-.4z"/></svg></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(()=>{
+const WA='27832970639', MAIL='zee@waynesplanthireworld.co.za';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const fine=matchMedia('(pointer:fine)').matches;
+const G=window.gsap, ST=window.ScrollTrigger;
+const plain=/[?&]plain/.test(location.search);   /* ?plain = layout-only QA view, no motion */
+const ANIM=!!(G&&ST&&!rm&&!plain);
+
+/* ---------- data (from the live site) ---------- */
+const F=[
+ {id:'komatsu-20t',n:'20T Komatsu Excavator',c:'Earthmoving',t:'20 ton excavator',tag:['Heavy duty'],img:'komatsu-20t-excavator',pos:'50% 35%',hp:'148 hp (110 kW)',w:'20,010 kg',s:'5.5 km/h',e:'Komatsu SAA6D107E-1'},
+ {id:'hyundai-22t',n:'22T Hyundai Excavator',c:'Earthmoving',t:'22 ton excavator',tag:['Heavy duty'],img:'hyundai-22t-excavator',hp:'143 hp (107 kW)',w:'21,900 kg',s:'5.7 km/h',e:'Hyundai HM 5.9 (Tier 2)'},
+ {id:'d85a',n:'Komatsu D85A Dozer',c:'Earthmoving',t:'Bulldozer',tag:['Heavy duty','6-cylinder'],img:'komatsu-d85a-dozer',op:'Dawid',hp:'228 hp',w:'23,610 kg',s:'11.2 km/h',e:'6-cylinder, 14.0 L (14,011 cc)'},
+ {id:'wa420',n:'Komatsu WA420-3 Front Loader',c:'Earthmoving',t:'Wheel loader',tag:['6-cylinder'],img:'komatsu-wa420',hp:'217 hp (162 kW)',w:'18,220 kg',s:'34 km/h',e:'Komatsu S6D108'},
+ {id:'cat428f',n:'CAT 428F Backhoe Loader',c:'Earthmoving',t:'TLB',tag:['4-cylinder'],img:'cat-428f',pos:'50% 60%',hp:'101 hp (74.5 kW)',w:'8,529 kg',s:'40 km/h',e:'Cat C4.4 ACERT'},
+ {id:'cat422e',n:'CAT 422E Backhoe Loader',c:'Earthmoving',t:'TLB',tag:['4-cylinder'],img:'cat-422e',op:'Tsebo',hp:'76 hp (56 kW)',w:'10,200 kg',s:'40 km/h',e:'4-cylinder, 56 kW'},
+ {id:'phantom',n:'Ace Phantom Backhoe Loader',c:'Earthmoving',t:'TLB',tag:['4-cylinder'],img:'ace-phantom',op:'Norman',hp:'96 hp',w:'8,040 kg',s:'40 km/h',e:'4.0 L (4,000 cc), 4-cylinder'},
+ {id:'bobcat135',n:'Bobcat 135',c:'Earthmoving',t:'Mini excavator',tag:['Compact','4-cylinder'],img:'bobcat-135',op:'Stanford',hp:'100 hp',w:'3,770 kg',s:'11 km/h',e:'4-cylinder'},
+ {id:'bomag',n:'Bomag BW 212 P Roller',c:'Earthmoving',t:'Compactor roller',tag:['4-cylinder'],img:'bomag-roller',op:'David',hp:'120.7 hp (98 kW)',w:'11,490 kg',s:'5 km/h',e:'4-cylinder, 98 kW'},
+ {id:'ud-lowbed',n:'36-Ton UD Lowbed',c:'Trucks',t:'Heavy transport',tag:['36 ton'],img:'ud-lowbed-36t',pos:'50% 55%',hp:'490 hp (360 kW)',w:'65,000 kg GCM',s:'80 km/h',e:'UD GH13, 13-litre turbo diesel (governed speed)'},
+ {id:'actros',n:'Mercedes Actros Lowbed',c:'Trucks',t:'Heavy transport',tag:['6-cylinder'],img:'actros-lowbed',op:'Norman',hp:'400 hp (295 kW)',w:'26,000 kg',s:'90 km/h',e:'6-cylinder, 295 kW'},
+ {id:'axor',n:'Mercedes Axor 30-Ton Side Tipper',c:'Trucks',t:'Side tipper',tag:['30 ton','6-cylinder'],img:'axor-tipper',op:'Franki',hp:'400 hp',w:'30,000 kg',s:'90 km/h',e:'11.97 L'},
+ {id:'ud390',n:'UD 390 Tipper',c:'Trucks',t:'Heavy duty tipper',tag:['Heavy duty'],img:'ud-390-tipper',op:'David',hp:'290 hp',w:'26,000 kg',s:'80 km/h',e:'UD GH11'},
+ {id:'isuzu',n:'Isuzu 2300 Tipper',c:'Trucks',t:'Light duty tipper',tag:['Light duty','4-cylinder'],img:'isuzu-tipper',op:'Solly',hp:'148 hp',w:'2,900 kg',s:'110 km/h',e:'5.2 L, 4-cylinder'},
+ {id:'crane',n:'Rigid Crane Truck',c:'Trucks',t:'Crane truck',tag:['Rigid','6-cylinder'],img:'crane-truck',op:'Norman',hp:'162 hp',w:'18,000 kg',s:'90 km/h',e:'7.6 L, 6-cylinder'},
+ {id:'bell220',n:'Bell 220 Logger',c:'Loggers',t:'Forestry',tag:['Forestry','4-cylinder'],img:'bell-220',op:'Stanford',hp:'100 hp',w:'',s:'11 km/h',e:'3.3 L, 4-cylinder'},
+ {id:'bell225',n:'Bell 225 Logger',c:'Loggers',t:'Forestry',tag:['Forestry','4-cylinder'],img:'bell-225',op:'Tsebo',hp:'100 hp',w:'6,727 kg',s:'11.2 km/h',e:'3.3 L, 4-cylinder'},
+ {id:'fiat',n:'Fiat 70-56 Tractor',c:'Tractors',t:'Agricultural tractor',tag:['Agricultural','4-cylinder'],img:'fiat-tractor',op:'Fanki',hp:'70 hp',w:'2,950 kg',s:'30 km/h',e:'Fiat 8045.06'},
+ {id:'massey',n:'Massey Ferguson 165 with Slasher',c:'Tractors',t:'Tractor, slasher and mower combo',tag:['Agricultural'],img:'massey-165',hp:'58 hp',w:'2,270 kg',s:'30 km/h',e:'Perkins AD4.203 diesel'}
+];
+let cur=F[0], filter='All'; const chosen=new Set();
+
+/* ---------- hero background ---------- */
+const pz=$('#pz');
+const HERO=[['komatsu-d85a-dozer','50% 60%'],['komatsu-wa420','55% 60%'],['cat-422e','50% 55%'],['hyundai-22t-excavator','50% 45%']];
+HERO.forEach(([n,p],i)=>{const im=new Image();im.src='img/'+n+'.jpg';im.alt='';im.style.objectPosition=p;if(i===0)im.className='on';im.fetchPriority=i?'low':'high';pz.appendChild(im);});
+let hk=0;
+setInterval(()=>{if(document.hidden||rm)return;const ims=pz.children;ims[hk].className='';hk=(hk+1)%ims.length;ims[hk].className='on';},6500);
+
+/* ---------- reasons ---------- */
+const rrows=$$('.rrow'), rimgs=$$('#rpanel img');
+function setWhy(i){rrows.forEach((r,k)=>r.setAttribute('aria-current',k===i));rimgs.forEach((m,k)=>m.classList.toggle('on',k===i));}
+rrows.forEach((r,i)=>{['mouseenter','focus','click'].forEach(ev=>r.addEventListener(ev,()=>setWhy(i)));});
+setWhy(0);
+
+/* ---------- fleet explorer ---------- */
+const cats=['All',...new Set(F.map(f=>f.c))];
+const chips=$('#chips'), list=$('#list');
+cats.forEach(c=>{const b=document.createElement('button');b.className='chip';b.type='button';b.textContent=c==='All'?'All 19':c;b.setAttribute('aria-pressed',c==='All');b.onclick=()=>{filter=c;[...chips.children].forEach(x=>x.setAttribute('aria-pressed',x===b));renderList();};chips.appendChild(b);});
+function renderList(){
+  list.innerHTML='';
+  F.filter(f=>filter==='All'||f.c===filter).forEach(f=>{
+    const li=document.createElement('li');
+    const r=document.createElement('button');r.type='button';r.className='row';r.setAttribute('aria-current',f===cur);
+    r.innerHTML='<img alt="" loading="lazy"><span><span class="n"></span><span class="k"></span></span>';
+    r.querySelector('img').src='img/'+f.img+'.jpg';r.querySelector('.n').textContent=f.n;r.querySelector('.k').textContent=f.t;
+    r.onclick=()=>show(f);
+    const t=document.createElement('button');t.type='button';t.className='tog';t.setAttribute('aria-pressed',chosen.has(f.id));t.textContent=chosen.has(f.id)?'Added':'Add';t.setAttribute('aria-label',(chosen.has(f.id)?'Remove ':'Add ')+f.n+' to quote');
+    t.onclick=()=>toggle(f);
+    li.append(r,t);list.appendChild(li);
+  });
+}
+const tile=(v,l)=>{if(!v)return'';const m=v.match(/^([\d.,]+)\s*(.*)$/);return `<div class="tile"><b>${m?m[1]:v}</b><span>${l}${m&&m[2]?' · '+m[2]:''}</span></div>`;};
+function show(f){
+  cur=f;const im=$('#st-img');im.classList.add('swap');
+  setTimeout(()=>{im.src='img/'+f.img+'.jpg';im.alt=f.n;im.style.objectPosition=f.pos||'50% 50%';im.onload=()=>im.classList.remove('swap');setTimeout(()=>im.classList.remove('swap'),450);},170);
+  $('#st-name').textContent=f.n;$('#st-what').textContent=f.t;
+  $('#st-tags').innerHTML='<span class="tg hot">Hire available</span>'+f.tag.map(x=>`<span class="tg">${x}</span>`).join('');
+  $('#st-tiles').innerHTML=tile(f.hp,'Power')+tile(f.w,'Weight')+tile(f.s,'Speed');
+  $('#st-meta').innerHTML=`<span><b>Engine:</b> ${f.e}</span><span><b>Operator:</b> ${f.op?f.op+', experienced operator':'Experienced operator included'}</span>`;
+  syncAdd();renderList();
+}
+function syncAdd(){const b=$('#st-add');const on=chosen.has(cur.id);b.textContent=on?'Added to quote':'Add to quote';b.className='btn'+(on?' alt':'');}
+$('#st-add').onclick=()=>toggle(cur);
+function toggle(f){chosen.has(f.id)?chosen.delete(f.id):chosen.add(f.id);syncAdd();renderList();renderSel();}
+
+/* ---------- gallery strips ---------- */
+const GAL1=['komatsu-d85a-dozer','hyundai-22t-excavator','cat-428f','komatsu-20t-excavator','komatsu-wa420','cat-422e'];
+const GAL2=['ud-lowbed-36t','bell-225','bobcat-135','bomag-roller','isuzu-tipper','axor-tipper'];
+function fill(id,arr){const t=$(id);const html=arr.concat(arr).map(n=>`<img src="img/${n}.jpg" alt="" loading="lazy">`).join('');t.innerHTML=html;}
+fill('#s1',GAL1);fill('#s2',GAL2);
+
+/* ---------- quote ---------- */
+function renderSel(){
+  const box=$('#sel-box');box.innerHTML='';
+  if(!chosen.size){box.innerHTML='<span class="none">None yet. Pick from the fleet above.</span>';}
+  F.filter(f=>chosen.has(f.id)).forEach(f=>{const s=document.createElement('span');s.className='tag';s.setAttribute('role','listitem');s.append(f.n);const x=document.createElement('button');x.type='button';x.setAttribute('aria-label','Remove '+f.n);x.textContent='×';x.onclick=()=>toggle(f);s.appendChild(x);box.appendChild(s);});
+  mail();
+}
+function msg(){
+  const g=id=>$(id).value.trim();
+  const ms=F.filter(f=>chosen.has(f.id)).map(f=>f.n).join(', ')||'(not sure yet, please advise)';
+  return `Hi Wayne's, I'd like a quote.\nMachines: ${ms}\nStart date: ${g('#f-date')||'flexible'}\nSite: ${g('#f-site')||'-'}\nName: ${g('#f-name')||'-'}\nPhone: ${g('#f-phone')||'-'}`;
+}
+function mail(){$('#send-mail').href='mailto:'+MAIL+'?subject='+encodeURIComponent("Plant hire quote request")+'&body='+encodeURIComponent(msg());}
+['#f-date','#f-site','#f-name','#f-phone'].forEach(s=>$(s).addEventListener('input',mail));
+$('#qf').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!$('#f-phone').value.trim()){$('#q-note').textContent='Add a phone number so we can reply.';$('#f-phone').focus();return;}
+  (window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',method:'whatsapp_quote'});
+  if(window.fbq)try{fbq('track','Lead')}catch(_){}
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');
+});
+show(F[0]);renderSel();
+
+/* ---------- nav state (works without GSAP) ---------- */
+const nav=$('#nav');
+const onS=()=>nav.classList.toggle('solid',scrollY>60);
+addEventListener('scroll',onS,{passive:true});onS();
+
+/* ---------- motion ---------- */
+if(!ANIM) return;
+G.registerPlugin(ST);
+document.documentElement.classList.add('anim');
+
+let lenis=null;
+if(window.Lenis&&fine&&!/[?&]plain/.test(location.search)){
+  lenis=new Lenis({duration:1.15,smoothWheel:true});
+  lenis.on('scroll',ST.update);
+  G.ticker.add(t=>lenis.raf(t*1000));G.ticker.lagSmoothing(0);
+  $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1&&$(id)){e.preventDefault();lenis.scrollTo(id,{offset:-70});}}));
+}
+
+/* split headings into masked words */
+$$('[data-split]').forEach(el=>{
+  const words=el.textContent.trim().split(/\s+/);
+  el.setAttribute('aria-label',el.textContent.trim());
+  el.innerHTML=words.map(w=>`<span class="w" aria-hidden="true"><span>${w}</span></span>`).join(' ');
+  ST.create({trigger:el,start:'top 88%',once:true,onEnter:()=>G.to(el.querySelectorAll('.w>span'),{y:0,duration:1,ease:'power4.out',stagger:.07})});
+});
+
+/* reveals */
+ST.batch('.rv',{start:'top 98%',once:true,onEnter:b=>G.to(b,{opacity:1,y:0,duration:1,ease:'power3.out',stagger:.1})});
+
+/* counters */
+$$('[data-count]').forEach(el=>{
+  const end=+el.dataset.count,o={v:0};
+  ST.create({trigger:el,start:'top 90%',once:true,onEnter:()=>G.to(o,{v:end,duration:1.8,ease:'power2.out',onUpdate:()=>{el.textContent=Math.round(o.v)}})});
+  el.textContent='0';
+});
+G.from('.fig',{y:60,opacity:0,duration:1,stagger:.15,ease:'power3.out',scrollTrigger:{trigger:'.figs',start:'top 85%',once:true}});
+
+/* hero parallax */
+G.to('#pz',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+G.to('#h1',{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom 20%',scrub:true}});
+
+/* verb panels */
+$$('.vp').forEach(p=>{
+  G.fromTo(p.querySelector('.im'),{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:p,start:'top bottom',end:'bottom top',scrub:true}});
+  G.fromTo(p.querySelector('.v'),{y:140,opacity:0},{y:0,opacity:1,duration:1,ease:'power4.out',scrollTrigger:{trigger:p,start:'top 60%',once:true}});
+  G.fromTo(p.querySelector('p'),{y:30,opacity:0},{y:0,opacity:1,duration:.9,delay:.15,ease:'power3.out',scrollTrigger:{trigger:p,start:'top 55%',once:true}});
+});
+
+/* reasons rows slide in */
+G.from('.rrow',{y:40,opacity:0,duration:.9,stagger:.09,ease:'power3.out',scrollTrigger:{trigger:'#rlist',start:'top 85%',once:true}});
+
+/* progress bar */
+G.to('#prog',{scaleX:1,ease:'none',scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:.2}});
+
+/* magnetic buttons */
+if(fine)$$('[data-mag]').forEach(b=>{
+  const xt=G.quickTo(b,'x',{duration:.4,ease:'power3.out'}),yt=G.quickTo(b,'y',{duration:.4,ease:'power3.out'});
+  b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();xt((e.clientX-r.left-r.width/2)*.22);yt((e.clientY-r.top-r.height/2)*.3);});
+  b.addEventListener('pointerleave',()=>{xt(0);yt(0);});
+});
+
+/* hero entrance: title is readable well inside 1.2s */
+G.set('.hero .hfoot>*',{y:30});
+G.timeline({defaults:{ease:'power4.out'}})
+  .to('.hero h1 .hl>span',{y:0,duration:.8,stagger:.1})
+  .to('.hero .hfoot>*',{opacity:1,y:0,duration:.8,stagger:.1},'-=.5')
+  .from('#nav',{yPercent:-100,duration:.7},'-=.9');
+addEventListener('load',()=>ST.refresh());
+})();
+</script>
+</body>
+</html>

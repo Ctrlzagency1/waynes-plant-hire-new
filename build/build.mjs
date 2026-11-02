@@ -297,7 +297,7 @@ add('/',html);
 {
 const html=head({title:"Equipment to hire: dozers, excavators, tippers | Wayne's Plant Hire World",desc:`Browse ${FLEET.length} machines for hire in Randfontein and the West Rand: excavators, dozers, TLBs, loaders, rollers, lowbeds, tippers, loggers and tractors.`,path:'/equipment/'})
 +header('equipment','/equipment/')
-+pageHead({h1:['Equipment for hire'],lead:'Every machine comes with an experienced operator and is delivered from Randfontein across the West Rand.',img:'/img/site/d85a-lowbed.webp',pos:'50% 62%',crumbs:[['/','Home'],['/equipment/','Equipment']]})+`
++pageHead({h1:['Equipment for hire'],lead:'Every machine comes with an experienced operator and is delivered from Randfontein across the West Rand.',img:'/img/site/excavator-loading-2.webp',pos:'50% 32%',crumbs:[['/','Home'],['/equipment/','Equipment']]})+`
 <section class="shop" aria-label="Equipment">
   <aside class="side">
     <label class="search"><span class="vh">Search equipment</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg><input type="search" id="q" placeholder="Search equipment" autocomplete="off"></label>
@@ -372,7 +372,7 @@ ${cta({h:'Ready to hire?',p:'Add machines, tell us where and when. We reply with
 {
 const html=head({title:"About Wayne's Plant Hire World | Randfontein plant hire for 10+ years",desc:"Wayne's Plant Hire World provides well-maintained construction and earthmoving equipment to contractors and developers across the West Rand. 10+ years, 50+ fleet machines.",path:'/about/',ld:ldBusiness})
 +header('about','/about/')
-+pageHead({h1:["About","Wayne's."],lead:'A reliable plant equipment hire partner serving Randfontein and the surrounding West Rand areas.',img:'/img/site/ace-trench-air.webp',pos:'50% 50%',crumbs:[['/','Home'],['/about/','About']]})+`
++pageHead({h1:["About","Wayne's."],lead:'A reliable plant equipment hire partner serving Randfontein and the surrounding West Rand areas.',img:'/img/site/ace-operator.webp',pos:'55% 38%',crumbs:[['/','Home'],['/about/','About']]})+`
 <section class="sec" aria-labelledby="story-h">
   <h2 id="story-h" class="vh">Our story</h2>
   <div class="story">
@@ -382,7 +382,7 @@ const html=head({title:"About Wayne's Plant Hire World | Randfontein plant hire 
       <p class="rv"><strong>Reliability in every move.</strong></p>
       <div class="rv"><a class="btn" href="/equipment/">See the fleet${AR}</a></div>
     </div>
-    <figure class="rv"><img class="ph" src="/img/site/team-briefing.webp" alt="The Wayne's team planning a job on site" loading="lazy" style="object-position:50% 50%"><figcaption class="cap">The team planning a job on site</figcaption></figure>
+    <figure class="rv"><img class="ph" src="/img/site/crane-container-2.webp" alt="A Wayne's Plant Hire World crane truck on a delivery" loading="lazy" style="object-position:50% 45%"><figcaption class="cap">On a delivery, West Rand</figcaption></figure>
   </div>
 </section>
 <section class="navy" aria-label="Wayne's in one sentence">
@@ -402,7 +402,7 @@ add('/about/',html);
 {
 const html=head({title:"Contact Wayne's Plant Hire World | Randfontein, 083 297 0639",desc:"Call, WhatsApp or email Wayne's Plant Hire World. 46 Steyr Street, Randfontein. Mon to Fri 07:30 to 17:00, WhatsApp and email 24 hours.",path:'/contact/',ld:ldBusiness})
 +header('contact','/contact/')
-+pageHead({h1:['Talk to','the yard.'],lead:'Questions about equipment or a custom quote? Call, WhatsApp or send us a message.',img:'/img/site/ud-tipper.webp',pos:'30% 55%',crumbs:[['/','Home'],['/contact/','Contact']]})+`
++pageHead({h1:['Talk to','the yard.'],lead:'Questions about equipment or a custom quote? Call, WhatsApp or send us a message.',img:'/img/site/ud-truck-operator.webp',pos:'50% 35%',crumbs:[['/','Home'],['/contact/','Contact']]})+`
 <section class="cwrap" aria-labelledby="c-h">
   <div class="cinfo">
     <h2 id="c-h" class="vh">Contact details</h2>

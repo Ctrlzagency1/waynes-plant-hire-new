@@ -27,7 +27,7 @@ body{font-feature-settings:'cv11','ss01'}
 .num{font-variant-numeric:tabular-nums}
 
 /* ---------- buttons + links ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 24px;background:var(--blue);color:var(--navy);font:600 16px/1 var(--b);text-decoration:none;border:0;cursor:pointer;transition:background .25s,color .25s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 24px;background:var(--blue);color:var(--white);font:600 16px/1 var(--b);text-decoration:none;border:0;cursor:pointer;transition:background .25s,color .25s}
 .btn:hover{background:var(--navy);color:var(--white)}
 .btn .ar{transition:transform .3s var(--ease)}
 .btn:hover .ar{transform:translateX(4px)}
@@ -240,7 +240,7 @@ body{font-feature-settings:'cv11','ss01'}
 .peek img{width:100%;height:100%;object-fit:cover}
 .tog{min-width:76px;min-height:44px;padding:0 14px;background:transparent;border:2px solid var(--navy);font-weight:700;cursor:pointer;transition:background .2s,color .2s}
 .tog:hover{background:var(--navy);color:var(--white)}
-.tog[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:var(--navy)}
+.tog[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:var(--white)}
 .reg:not(.grid) li:hover .add{border-color:var(--white);color:var(--white)}
 .reg:not(.grid) li:hover .add[aria-pressed=true]{border-color:var(--blue);color:var(--navy)}
 

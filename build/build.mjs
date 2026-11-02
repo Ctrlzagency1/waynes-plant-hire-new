@@ -407,10 +407,10 @@ const html=head({title:"Contact Wayne's Plant Hire World | Randfontein, 083 297 
   <div class="cinfo">
     <h2 id="c-h" class="vh">Contact details</h2>
     <span class="yard rv" data-yard data-long><i></i><span>Mon to Fri, 07:30 to 17:00</span></span>
-    <div class="big rv"><a href="tel:+27832970639">083 297 0639</a><a href="tel:+27832663871">083 266 3871</a><span>Call the yard, Mon to Fri, 07:30 to 17:00.</span></div>
-    <div class="big rv"><a href="${wa(HELLO)}">WhatsApp</a><span>WhatsApp and email enquiries are answered 24 hours.</span></div>
-    <div class="big rv"><a href="mailto:${MAIL}" style="font-size:clamp(26px,2.4vw,40px)">${MAIL}</a></div>
-    <div class="big rv"><b style="font-size:clamp(30px,2.8vw,46px)">46 Steyr Street, Randfontein</b><span>Gauteng. Serving Randfontein and surrounding West Rand areas.</span></div>
+    <div class="big rv"><span class="lbl">Call the yard</span><a href="tel:+27832970639">083 297 0639</a><a href="tel:+27832663871">083 266 3871</a><span>Mon to Fri, 07:30 to 17:00.</span></div>
+    <div class="big rv"><span class="lbl">WhatsApp</span><a href="${wa(HELLO)}">Message us on WhatsApp</a><span>Answered 24 hours.</span></div>
+    <div class="big rv"><span class="lbl">Email</span><a href="mailto:${MAIL}">${MAIL}</a><span>Answered 24 hours.</span></div>
+    <div class="big addr rv"><span class="lbl">Visit the yard</span><b>46 Steyr Street, Randfontein</b><span>Gauteng. Serving Randfontein and surrounding West Rand areas.</span></div>
   </div>
   <form id="cf" class="card rv" novalidate>
     <h2>Send a message.</h2>

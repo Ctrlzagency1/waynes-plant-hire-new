@@ -74,14 +74,13 @@ const header=(page,path)=>`<body data-page="${page}">
 </div>
 <div class="menu" id="menu">
   <nav aria-label="Mobile">
-    ${NAV.map(([h,l])=>`<a href="${h}"${path===h?' aria-current="page"':''}>${l}</a>`).join('\n    ')}
-    <a href="/quote/">Get a quote</a>
+    ${NAV.map(([h,l],i)=>`<a href="${h}"${path===h?' aria-current="page"':''}><span class="mn-i">${String(i+1).padStart(2,'0')}</span>${l}</a>`).join('\n    ')}
   </nav>
+  <a class="mn-cta" href="/quote/">Get a quote${AR}</a>
   <div class="mf">
     <span class="yard" data-yard><i></i><span>Mon to Fri, 07:30 to 17:00</span></span>
-    <a href="tel:+27832970639">083 297 0639</a>
-    <a href="tel:+27832663871">083 266 3871</a>
-    <a href="${wa(HELLO)}">WhatsApp us</a>
+    <div class="mf-row"><a href="tel:+27832970639">083 297 0639</a><a href="tel:+27832663871">083 266 3871</a></div>
+    <a class="mf-wa" href="${wa(HELLO)}">WhatsApp us${AR}</a>
   </div>
 </div>
 <main id="top">`;

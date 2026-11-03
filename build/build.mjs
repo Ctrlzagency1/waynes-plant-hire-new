@@ -231,9 +231,9 @@ const html=head({title:"Wayne's Plant Hire World | Plant equipment hire in Randf
   </div>
   <img class="hs-m" src="/img/hero/excavator.webp?v=${V}" alt="" aria-hidden="true" fetchpriority="high">
   <ul class="hx-stats">
-    <li><b>10+</b><span>Years on West Rand sites</span></li>
-    <li><b>50+</b><span>Machines in the fleet</span></li>
-    <li><b>24/7</b><span>Breakdown support</span></li>
+    <li><b>10+</b><span>Years on site</span></li>
+    <li><b>50+</b><span>Fleet machines</span></li>
+    <li><b>24/7</b><span>Support</span></li>
     <li class="yd"><span class="yard" data-yard><i></i><span>Mon to Fri, 07:30 to 17:00</span></span><a href="tel:+27832970639">083 297 0639</a></li>
   </ul>
 </section>

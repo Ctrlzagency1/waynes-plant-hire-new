@@ -283,7 +283,9 @@ body{font-feature-settings:'cv11','ss01'}
 .mc-img{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--char)}
 .mc-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
 .mc:hover .mc-img img{transform:scale(1.05)}
-.mc-cat{position:absolute;left:12px;top:12px;background:var(--white);color:var(--navy);padding:6px 10px;font-size:var(--t-s);font-weight:600}
+.mc-fig{position:relative}
+.mc-cat{position:absolute;left:12px;top:12px;background:var(--white);color:var(--navy);padding:6px 10px;font-size:var(--t-s);font-weight:600;border:0;cursor:pointer;z-index:2}
+.mc-cat:hover{background:var(--navy);color:var(--white)}
 .mc-b{flex:1;display:flex;flex-direction:column;gap:12px;padding:clamp(18px,1.6vw,24px)}
 .mc h3{font-size:var(--t-h3);line-height:1.2}
 .mc h3 a{text-decoration:none}
@@ -721,6 +723,7 @@ form.card .note{color:#A9B6CC}
   .tree .chip,.tree .chip.sub{flex:0 0 auto;width:auto;padding:0 16px;background:var(--white);border:1.5px solid var(--tint-2);border-radius:999px;gap:8px;scroll-snap-align:start}
   .tree .chip[aria-pressed=true]{border-color:var(--navy)}
   .help{display:none}
+.shop .side>h2{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--steel);font-weight:700;margin:0 0 6px}
 }
 @media(max-width:640px){
   .topbar{display:none}
@@ -750,7 +753,8 @@ form.card .note{color:#A9B6CC}
 @media(max-width:1100px){.burger{display:flex}}
 @media(max-width:640px){
   body{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
-  .mbar{display:grid;grid-template-columns:.8fr 1.15fr 1fr;gap:4px;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));height:60px;padding:6px;border-radius:18px;background:var(--navy);box-shadow:0 10px 30px rgba(2,8,23,.35);z-index:44}
+  .mbar{display:grid;grid-template-columns:.8fr 1.15fr 1fr;gap:4px;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));height:60px;padding:6px;border-radius:18px;background:var(--navy);box-shadow:0 10px 30px rgba(2,8,23,.35);z-index:44;transition:transform .4s var(--ease)}
+  .mbar.hide{transform:translateY(calc(100% + 20px + env(safe-area-inset-bottom)))}
   .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;border-radius:12px;color:var(--white);background:transparent;font-weight:600;font-size:14px;white-space:nowrap;text-decoration:none}
   .mbar svg{width:18px;height:18px;fill:currentColor;flex:none}
   .mbar .w{background:transparent;color:var(--white)}
@@ -758,4 +762,13 @@ form.card .note{color:#A9B6CC}
   .mbar .q{background:var(--blue);color:var(--navy);font-weight:700}
   .mbar .qc{background:var(--navy);color:var(--white)}
   .toast{bottom:96px}
+  /* hide hero search form on mobile */
+  .finder,.hs-alt{display:none}
+  /* stats: 3-col so no orphan row */
+  .hs .hx-stats{grid-template-columns:repeat(3,1fr)}
+  .hs .hx-stats b{font-size:clamp(20px,5.5vw,28px)}
+  .hs .hx-stats li{gap:8px}
+  .hs .hx-stats .yd{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 0!important;border-top:1px solid rgba(255,255,255,.12)!important}
+  .hs .hx-stats .yd .yard{font-size:13px}
+  .hs .hx-stats .yd a{font-size:clamp(15px,4.5vw,20px)}
 }

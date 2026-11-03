@@ -34,6 +34,8 @@ function toggle(id,quiet){
   if(!quiet&&byId[id])toast(on?`${byId[id].n} added. <a href="/quote/">View quote</a>`:`${byId[id].n} removed.`);
 }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b){e.preventDefault();e.stopPropagation();toggle(b.dataset.add,page==='quote');}});
+/* equipment card category tag → filter */
+document.addEventListener('click',e=>{const btn=e.target.closest('.mc-cat[data-filter]');if(!btn)return;e.preventDefault();e.stopPropagation();const cat=btn.dataset.filter;if(page==='equipment'){const chip=$$('.chip[data-cat]').find(c=>c.dataset.cat===cat);if(chip)chip.click();}else{location.href='/equipment/?g='+encodeURIComponent(cat);}});
 addEventListener('storage',e=>{if(e.key===KEY){chosen=new Set(store.get(KEY,[]));paint();}});
 paint();
 const lead=method=>{(window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',method});if(window.fbq)try{fbq('track','Lead')}catch(_){}};
@@ -42,6 +44,10 @@ const lead=method=>{(window.dataLayer=window.dataLayer||[]).push({event:'generat
 const nav=$('#nav');
 const onS=()=>nav.classList.toggle('solid',scrollY>40);
 addEventListener('scroll',onS,{passive:true});onS();
+
+/* ---------- floating dock: hide on scroll down, show on scroll up ---------- */
+const mbar=$('.mbar');
+if(mbar){let lastY=scrollY,ticking=false;const onSM=()=>{const y=scrollY,dy=y-lastY;if(Math.abs(dy)>6)mbar.classList.toggle('hide',dy>0);lastY=y;ticking=false;};addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(onSM);ticking=true;}},{passive:true});}
 const burger=$('#burger'),menu=$('#menu');
 const setMenu=o=>{menu.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);document.documentElement.style.overflow=o?'hidden':'';};
 burger.addEventListener('click',()=>setMenu(!menu.classList.contains('open')));

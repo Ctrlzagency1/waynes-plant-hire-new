@@ -149,7 +149,7 @@ const tree=()=>`<div class="tree" id="chips" role="group" aria-label="Filter by 
 </div>`;
 const machineOptions=()=>GROUPS.map(g=>`<optgroup label="${esc(g.n)}">${g.ids.map(id=>`<option value="${id}">${esc(byId[id].n)}</option>`).join('')}</optgroup>`).join('');
 const row=f=>`<li class="mc" data-i="${FLEET.indexOf(f)}" data-hp="${num(f.hp)}" data-w="${num(f.w)}" data-cat="${esc(f.g)}" data-par="${f.c}" data-name="${esc((f.n+' '+f.t+' '+f.g+' '+f.c+' '+no(f)).toLowerCase())}">
-  <a class="mc-img" href="${url(f)}" tabindex="-1" aria-hidden="true"><img class="ph" src="${src(f.img)}" alt="" loading="lazy" style="object-position:${f.pos}"><span class="mc-cat">${esc(f.g)}</span></a>
+  <div class="mc-fig"><a class="mc-img" href="${url(f)}" tabindex="-1" aria-hidden="true"><img class="ph" src="${src(f.img)}" alt="" loading="lazy" style="object-position:${f.pos}"></a><button class="mc-cat" type="button" data-filter="${esc(f.g)}">${esc(f.g)}</button></div>
   <div class="mc-b">
     <h3 class="nm"><a href="${url(f)}">${esc(f.n)}</a></h3>
     <p class="mc-t">${esc(f.t)} · ${no(f)}</p>

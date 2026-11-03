@@ -719,7 +719,7 @@ form.card .note{color:#A9B6CC}
   .how{grid-template-columns:1fr}
   .shop{grid-template-columns:1fr}
   .shop .side{position:static}
-  .tree{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;margin:0 calc(var(--m)*-1);padding:2px var(--m) 6px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+  .tree{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;margin:0 calc(var(--m)*-1);padding:2px var(--m) 6px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;margin-bottom:16px}
   .tree .chip,.tree .chip.sub{flex:0 0 auto;width:auto;padding:0 14px;min-height:36px;font-size:14px;background:var(--white);border:1.5px solid var(--tint-2);border-radius:999px;gap:6px;scroll-snap-align:start}
   .tree .chip[aria-pressed=true]{border-color:var(--navy)}
   .help{display:none}

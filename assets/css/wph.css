@@ -734,8 +734,8 @@ form.card .note{color:#A9B6CC}
   .gt strong{font-size:16px;padding:0 12px}
   .gt>span:last-child{padding:2px 12px 0;font-size:14px}
   .ben{grid-template-columns:1fr}
-  .shop .cards{grid-template-columns:1fr;margin-top:16px}
-  .shop .bar{margin-bottom:0}
+  .shop .cards{grid-template-columns:1fr;margin-top:0}
+  .shop .bar{display:none}
   .rates{grid-template-columns:1fr 1fr}
 }
 

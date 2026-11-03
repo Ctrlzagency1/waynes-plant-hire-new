@@ -219,7 +219,7 @@ const html=head({title:"Wayne's Plant Hire World | Plant equipment hire in Randf
 <section class="hs" id="hs" aria-labelledby="h1" data-dark-top>
   <div class="hx-bg" aria-hidden="true"><video class="hx-vid" muted loop playsinline preload="metadata" poster="/media/hero-aerial.webp" data-autoplay><source src="/media/hero-aerial.mp4" type="video/mp4"></video></div>
   <div class="hs-in">
-    <h1 id="h1"><span class="hl"><span>Plant hire in Randfontein.</span></span></h1>
+    <h1 id="h1"><span class="hl"><span>West Rand plant hire.</span></span></h1>
     <p class="hs-sub" data-fade>Excavators, dozers, TLBs, tippers and lowbeds, delivered across the West Rand with an experienced operator.</p>
     <form class="finder" id="finder" action="/equipment/" method="get" data-fade>
       <label><span>What are you looking for?</span><select name="m" id="fm"><option value="">Any machine</option>${machineOptions()}</select></label>

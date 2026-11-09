@@ -194,7 +194,7 @@ const ldBusiness=`<script type="application/ld+json">${JSON.stringify({
 })}</script>`;
 
 const FAQ=[
- ['Do your machines come with an operator?','Yes. Our machines come with skilled, experienced operators, so you hire the machine and the person who knows it.'],
+ ['Do your machines come with an operator?','Yes. All hires are wet rate — the machine comes with a skilled, experienced operator and fuel included in the price.'],
  ['Where do you deliver?','From our yard at 46 Steyr Street, Randfontein, to sites across Randfontein and the surrounding West Rand, on our own lowbeds and tippers.'],
  ['How long can I hire for?','Rental terms are flexible: a day, a month or a year. Tell us the job and we will work out the best rate.'],
  ['What happens if a machine breaks down?','We offer 24/7 breakdown support and service. Downtime costs you money, so we pick up the phone.'],
@@ -209,7 +209,7 @@ const add=(path,html)=>{pages.push(path);out(path.endsWith('/')?path+'index.html
 /* ---------- HOME: search first, then browse by type (structure after yellowlista.co.za) ---------- */
 {
 const BENEFITS=[
- ['Operator included','Every machine comes with a skilled, experienced operator.'],
+ ['Operator & fuel included','Wet rate only — operator and fuel are included in the price, no extras.'],
  ['Delivered on our own trucks','Our lowbeds and tippers deliver across Randfontein and the West Rand.'],
  ['A day, a week or a month','Flexible rental terms and competitive daily and monthly rates.'],
  ['24/7 breakdown support','Downtime costs you money, so when something stops we pick up the phone.']
@@ -340,6 +340,7 @@ FLEET.forEach((f,i)=>{
     <div class="rates">
       <div><h2>Hire</h2><p>Daily, weekly or monthly</p><b>Rate on request</b></div>
       <div><h2>Operator</h2><p>Experienced operator</p><b>Included</b></div>
+      <div><h2>Fuel</h2><p>Petrol or diesel</p><b>Included</b></div>
     </div>
     <div class="acts">
       <button class="btn" type="button" data-add="${f.id}" data-on="Added to your quote ✓" data-off="Add to quote" aria-pressed="false">Add to quote</button>
@@ -354,7 +355,7 @@ FLEET.forEach((f,i)=>{
       <dt>Category</dt><dd><a href="${gUrl(GROUPS.find(g=>g.n===f.g))}">${esc(f.g)}</a> · ${f.c}</dd>
       ${f.e?`<dt>Engine</dt><dd>${esc(f.e)}</dd>`:''}
       <dt>Operator</dt><dd>${f.op?esc(f.op)+', experienced operator':'Experienced operator included'}</dd>
-      <dt>Rates</dt><dd>Confirmed per job, daily or monthly</dd>
+      <dt>Rates</dt><dd>Wet rate — fuel included, confirmed per job</dd>
     </dl>
   </div>
 </section>

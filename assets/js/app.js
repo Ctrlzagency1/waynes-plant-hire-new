@@ -192,7 +192,7 @@ if(page==='quote'){
     const ms=F.filter(f=>chosen.has(f.id)).map(f=>`${f.n} (${f.no})`).join(', ')||'(not sure yet, please advise)';
     return `Hi Wayne's, I'd like a quote.\nMachines: ${ms}\nStart date: ${g('#f-date')||'flexible'}\nSite: ${g('#f-site')||'-'}\nName: ${g('#f-name')||'-'}\nPhone: ${g('#f-phone')||'-'}\nNotes: ${g('#f-note')||'-'}`;
   };
-  const mail=()=>{$('#send-mail').href='mailto:'+MAIL+'?subject='+encodeURIComponent('Plant hire quote request')+'&body='+encodeURIComponent(msg());};
+  const mail=()=>{$('#q-msg').value=msg();$('#send-mail').href='mailto:'+MAIL+'?subject='+encodeURIComponent('Plant hire quote request')+'&body='+encodeURIComponent(msg());};
   const render=()=>{
     box.innerHTML='';
     const sel=F.filter(f=>chosen.has(f.id));

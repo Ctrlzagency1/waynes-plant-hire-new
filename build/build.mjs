@@ -125,6 +125,7 @@ const footer=()=>`</main>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="/assets/js/fleet.js?v=${V}"></script>
 <script src="/assets/js/app.js?v=${V}"></script>
+<script src="https://link.hustlery.co.za/js/external-tracking.js" data-tracking-id="tk_c4425db160dd45f8a09305eaedae46dc"></script>
 </body>
 </html>
 `;
@@ -414,13 +415,13 @@ const html=head({title:"Contact Wayne's Plant Hire World | Randfontein, 083 297 
   </div>
   <form id="cf" class="card rv" novalidate>
     <h2>Send a message.</h2>
-    <label>Full name<input type="text" id="c-name" autocomplete="name" placeholder="Your name"></label>
+    <label>Full name<input type="text" id="c-name" name="name" autocomplete="name" placeholder="Your name"></label>
     <div class="two">
-      <label>Email address<input type="email" id="c-mail" autocomplete="email" placeholder="you@company.co.za"></label>
-      <label>Phone number<input type="tel" id="c-phone" autocomplete="tel" inputmode="tel" placeholder="082 000 0000"></label>
+      <label>Email address<input type="email" id="c-mail" name="email" autocomplete="email" placeholder="you@company.co.za"></label>
+      <label>Phone number<input type="tel" id="c-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="082 000 0000"></label>
     </div>
-    <label>Subject<input type="text" id="c-sub" placeholder="e.g. 20T excavator for two weeks"></label>
-    <label>Message<textarea id="c-msg" placeholder="Tell us about the job and where the site is."></textarea></label>
+    <label>Subject<input type="text" id="c-sub" name="subject" placeholder="e.g. 20T excavator for two weeks"></label>
+    <label>Message<textarea id="c-msg" name="message" placeholder="Tell us about the job and where the site is."></textarea></label>
     <div class="acts"><button class="btn" type="submit">Send on WhatsApp${AR}</button><a class="btn ghost" id="c-mailto" href="mailto:${MAIL}">Email it instead</a></div>
     <p class="note" id="c-note">We reply as soon as we can. WhatsApp and email are answered 24 hours.</p>
   </form>
@@ -449,18 +450,18 @@ const html=head({title:"Get a quote | Wayne's Plant Hire World",desc:"Pick your 
       ${FLEET.map(f=>`<li data-cat="${f.c}" data-name="${esc((f.n+' '+f.t+' '+no(f)).toLowerCase())}"><img class="ph" src="${src(f.img)}" alt="" loading="lazy" style="object-position:${f.pos}"><a href="${url(f)}"><strong>${esc(f.n)}</strong><span>${no(f)} · ${esc(f.t)}</span></a><button class="tog" type="button" data-add="${f.id}" aria-pressed="false" aria-label="Add ${esc(f.n)} to quote">Add</button></li>`).join('\n      ')}
     </ul>
   </div>
-  <form id="qf" class="card" novalidate>
+  <form id="qf" class="card" novalidate><input type="hidden" id="q-msg" name="message">
     <h2>Your request.</h2>
     <div><span style="font-weight:600;display:block;margin-bottom:8px">Machines</span><div class="sel" id="sel-box" role="list" aria-live="polite"></div></div>
     <div class="two">
-      <label>Start date<input type="date" id="f-date"></label>
-      <label>Site or town<input type="text" id="f-site" placeholder="Randfontein, Mohlakeng…" autocomplete="off"></label>
+      <label>Start date<input type="date" id="f-date" name="start_date"></label>
+      <label>Site or town<input type="text" id="f-site" name="address" placeholder="Randfontein, Mohlakeng…" autocomplete="off"></label>
     </div>
     <div class="two">
-      <label>Your name<input type="text" id="f-name" autocomplete="name" placeholder="Name"></label>
-      <label>Phone<input type="tel" id="f-phone" autocomplete="tel" inputmode="tel" placeholder="082 000 0000"></label>
+      <label>Your name<input type="text" id="f-name" name="name" autocomplete="name" placeholder="Name"></label>
+      <label>Phone<input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="082 000 0000"></label>
     </div>
-    <label>Anything else?<textarea id="f-note" placeholder="How long you need it, access to site, operator needs…"></textarea></label>
+    <label>Anything else?<textarea id="f-note" name="notes" placeholder="How long you need it, access to site, operator needs…"></textarea></label>
     <div class="acts"><button class="btn" type="submit">Send on WhatsApp${AR}</button><a class="btn ghost" id="send-mail" href="mailto:${MAIL}">Email it instead</a></div>
     <p class="note" id="q-note">Open Mon to Fri, 07:30 to 17:00. WhatsApp and email are answered 24 hours.</p>
   </form>

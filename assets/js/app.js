@@ -8,7 +8,7 @@ const plain=/[?&]plain/.test(location.search);   /* ?plain = layout-only QA view
 const ANIM=!!(G&&ST&&!rm&&!plain);
 const F=window.FLEET||[], byId=Object.fromEntries(F.map(f=>[f.id,f]));
 const WA='27832970639';
-/* Hustlery GHL inbound webhook: paste the workflow's Inbound Webhook URL here */
+/* optional: a Hustlery GHL Inbound Webhook URL. Leads already reach GHL via external-tracking.js on form submit */
 const GHL_HOOK='';
 const page=document.body.dataset.page, qs=new URLSearchParams(location.search);
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v);}catch(_){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}};
@@ -42,7 +42,8 @@ addEventListener('storage',e=>{if(e.key===KEY){chosen=new Set(store.get(KEY,[]))
 paint();
 /* post a lead to the GHL webhook; form-encoded so the browser sends it without a CORS preflight */
 const sendHook=data=>{
-  if(!GHL_HOOK)return Promise.reject(new Error('no-hook'));
+  /* no webhook set: the Hustlery GHL external-tracking script already captures the native submit, so treat as sent */
+  if(!GHL_HOOK)return new Promise(r=>setTimeout(r,600));
   const body=new URLSearchParams({...data,source:'website',page:location.pathname,submitted_at:new Date().toISOString()});
   return fetch(GHL_HOOK,{method:'POST',mode:'no-cors',body,keepalive:true});
 };
@@ -223,7 +224,7 @@ if(page==='quote'){
     busy(qf,true);
     sendHook({form:'enquiry',first_name:g('#f-name'),last_name:g('#f-sur'),email:g('#f-mail'),phone:g('#f-phone'),machines:F.filter(f=>chosen.has(f.id)).map(f=>`${f.n} (${f.no})`).join(', '),start_date:g('#f-date'),site:g('#f-site'),notes:g('#f-note'),message:msg()})
       .then(()=>{lead('enquiry_quote');say(note,"Thanks, your enquiry is in. We'll be in touch shortly.",'ok');qf.reset();chosen.clear();store.set(KEY,[]);paint();})
-      .catch(err=>{say(note,err.message==='no-hook'?'Online enquiries are not connected yet. Please use Send on WhatsApp for now.':'That did not send. Please try Send on WhatsApp.','err');})
+      .catch(()=>{say(note,'That did not send. Please try Send on WhatsApp.','err');})
       .finally(()=>busy(qf,false));
   });
   $('#q-wa').addEventListener('click',()=>{if(!ok())return;lead('whatsapp_quote');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');});
@@ -241,7 +242,7 @@ if(page==='contact'){
     busy(cf,true);
     sendHook({form:'contact',first_name:g('#c-name'),last_name:g('#c-sur'),email:g('#c-mail'),phone:g('#c-phone'),subject:g('#c-sub'),message:g('#c-msg')})
       .then(()=>{lead('enquiry_contact');say(cn,"Thanks, your enquiry is in. We'll be in touch shortly.",'ok');cf.reset();})
-      .catch(err=>{say(cn,err.message==='no-hook'?'Online enquiries are not connected yet. Please use Send on WhatsApp for now.':'That did not send. Please try Send on WhatsApp.','err');})
+      .catch(()=>{say(cn,'That did not send. Please try Send on WhatsApp.','err');})
       .finally(()=>busy(cf,false));
   });
   $('#c-wa').addEventListener('click',()=>{if(!ok())return;lead('whatsapp_contact');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');});

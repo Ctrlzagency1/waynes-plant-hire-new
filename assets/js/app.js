@@ -33,6 +33,7 @@ function paint(){
 function toggle(id,quiet){
   const on=!chosen.has(id);on?chosen.add(id):chosen.delete(id);
   store.set(KEY,[...chosen]);paint();
+  if(on&&byId[id]){px('AddToCart',mInfo(byId[id]));dl({event:'add_to_quote',machine:byId[id].n});}
   if(!quiet&&byId[id])toast(on?`${byId[id].n} added. <a href="/quote/">View quote</a>`:`${byId[id].n} removed.`);
 }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b){e.preventDefault();e.stopPropagation();toggle(b.dataset.add,page==='quote');}});
@@ -51,7 +52,24 @@ const say=(el,t,k)=>{el.textContent=t;el.classList.remove('err','ok');if(k)el.cl
 const need=(fields,note)=>{fields.forEach(f=>f.classList.remove('bad'));const miss=fields.filter(f=>!f.value.trim());if(!miss.length)return true;miss.forEach(f=>f.classList.add('bad'));say(note,'Please fill in: '+miss.map(f=>f.closest('label').firstChild.textContent.trim()).join(', ')+'.','err');miss[0].focus();return false;};
 const mailOk=(el,note)=>{if(!el.value.trim()||/^\S+@\S+\.\S+$/.test(el.value.trim()))return true;el.classList.add('bad');say(note,'That email address does not look right.','err');el.focus();return false;};
 const busy=(form,on,label)=>{const b=form.querySelector('[type=submit]');if(!b)return;if(on){b.dataset.t=b.innerHTML;b.disabled=true;b.textContent=label||'Sending…';}else{b.disabled=false;b.innerHTML=b.dataset.t;}};
-const lead=method=>{(window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',method});if(window.fbq)try{fbq('track','Lead')}catch(_){}};
+/* ---------- Meta Pixel + GTM events ---------- */
+const px=(ev,data,custom)=>{if(window.fbq)try{fbq(custom?'trackCustom':'track',ev,data||{})}catch(_){}};
+const dl=o=>(window.dataLayer=window.dataLayer||[]).push(o);
+const mInfo=f=>f?{content_name:f.n,content_ids:[f.id],content_type:'product',content_category:f.c}:{};
+const lead=(method,extra)=>{dl({event:'generate_lead',method});px(method.startsWith('whatsapp')?'Contact':'Lead',{content_name:method,...extra});};
+/* machine page view */
+if(page==='machine'){const f=F.find(x=>x.url&&location.pathname.replace(/\/?$/,'/')===x.url.replace(/\/?$/,'/'));px('ViewContent',mInfo(f));}
+/* enquiry page view */
+if(page==='quote')px('InitiateCheckout',{num_items:chosen.size,content_ids:[...chosen]});
+if(page==='contact')px('ViewContactPage',{},true);
+/* clicks: phone, WhatsApp, email, Enquire now CTAs */
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href]');if(!a)return;const h=a.getAttribute('href');
+  if(h.startsWith('tel:')){px('Contact',{content_name:'phone_call'});dl({event:'click_call'});}
+  else if(/wa\.me|whatsapp/i.test(h)){px('Contact',{content_name:'whatsapp_click'});dl({event:'click_whatsapp'});}
+  else if(h.startsWith('mailto:')){px('Contact',{content_name:'email_click'});dl({event:'click_email'});}
+  else if(h.startsWith('/quote/')){px('EnquireNowClick',{from:location.pathname},true);}
+},true);
 
 /* ---------- nav + menu ---------- */
 const nav=$('#nav');
@@ -153,6 +171,7 @@ if(finder)finder.addEventListener('submit',e=>{
   e.preventDefault();
   const m=$('#fm').value,g=$('#fg').value,d=$('#fd').value;
   if(d)store.set('wph.date',d);
+  px('Search',{search_string:(byId[m]?byId[m].n:g)||'all',content_category:g||undefined});
   location.href=m&&byId[m]?byId[m].url:'/equipment/'+(g?'?g='+encodeURIComponent(g):'');
 });
 if(page==='equipment'){
@@ -173,7 +192,7 @@ if(chips&&q){
     if(ANIM)ST.refresh();
   };
   chips.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.cat;$$('.chip',chips).forEach(c=>c.setAttribute('aria-pressed',c===b));run();});
-  q.addEventListener('input',()=>{term=q.value.trim().toLowerCase();run();});
+  let qt;q.addEventListener('input',()=>{term=q.value.trim().toLowerCase();run();clearTimeout(qt);if(term.length>2)qt=setTimeout(()=>px('Search',{search_string:term}),1200);});
   const c0=qs.get('g')||qs.get('cat');if(c0){const b=$$('.chip',chips).find(x=>x.dataset.cat===c0);if(b)b.click();}
 }
 
@@ -223,11 +242,11 @@ if(page==='quote'){
     e.preventDefault();if(!ok())return;
     busy(qf,true);
     sendHook({form:'enquiry',first_name:g('#f-name'),last_name:g('#f-sur'),email:g('#f-mail'),phone:g('#f-phone'),machines:F.filter(f=>chosen.has(f.id)).map(f=>`${f.n} (${f.no})`).join(', '),start_date:g('#f-date'),site:g('#f-site'),notes:g('#f-note'),message:msg()})
-      .then(()=>{lead('enquiry_quote');say(note,"Thanks, your enquiry is in. We'll be in touch shortly.",'ok');qf.reset();chosen.clear();store.set(KEY,[]);paint();})
+      .then(()=>{lead('enquiry_quote',{num_items:chosen.size,content_ids:[...chosen]});say(note,"Thanks, your enquiry is in. We'll be in touch shortly.",'ok');qf.reset();chosen.clear();store.set(KEY,[]);paint();})
       .catch(()=>{say(note,'That did not send. Please try Send on WhatsApp.','err');})
       .finally(()=>busy(qf,false));
   });
-  $('#q-wa').addEventListener('click',()=>{if(!ok())return;lead('whatsapp_quote');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');});
+  $('#q-wa').addEventListener('click',()=>{if(!ok())return;lead('whatsapp_quote',{num_items:chosen.size});window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');});
 }
 
 /* ---------- contact page ---------- */

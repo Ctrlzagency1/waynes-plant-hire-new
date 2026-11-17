@@ -8,7 +8,7 @@ const ROOT=join(dirname(fileURLToPath(import.meta.url)),'..');
 const SITE='https://waynesplanthireworld.co.za';
 const V=Date.now().toString(36); /* cache-buster for CSS, JS and hero images on each build */
 const WA='27832970639';
-const MAIL='zee@waynesplanthireworld.co.za';
+const MAIL='ronelle@waynesplanthireworld.co.za';
 const HELLO='Hello, I am interested in your plant equipment hire services.';
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const out=(p,html)=>{const f=join(ROOT,p);mkdirSync(dirname(f),{recursive:true});writeFileSync(f,html);};

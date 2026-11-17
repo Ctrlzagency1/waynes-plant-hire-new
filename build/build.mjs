@@ -68,7 +68,7 @@ const header=(page,path)=>`<body data-page="${page}">
     ${NAV.map(([h,l])=>`<li><a href="${h}"${path===h?' aria-current="page"':''}>${l}</a></li>`).join('\n    ')}
   </ul></nav>
   <a class="tel" href="tel:+27832970639">083 297 0639</a>
-  <a class="btn" href="/quote/">Get a quote<span class="qc" data-qc hidden>0</span></a>
+  <a class="btn" href="/quote/">Enquire now<span class="qc" data-qc hidden>0</span></a>
   <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
 </div>
@@ -76,7 +76,7 @@ const header=(page,path)=>`<body data-page="${page}">
   <nav aria-label="Mobile">
     ${NAV.map(([h,l],i)=>`<a href="${h}"${path===h?' aria-current="page"':''}><span class="mn-i">${String(i+1).padStart(2,'0')}</span>${l}</a>`).join('\n    ')}
   </nav>
-  <a class="mn-cta" href="/quote/">Get a quote${AR}</a>
+  <a class="mn-cta" href="/quote/">Enquire now${AR}</a>
   <div class="mf">
     <span class="yard" data-yard><i></i><span>Mon to Fri, 07:30 to 17:00</span></span>
     <div class="mf-row"><a href="tel:+27832970639">083 297 0639</a><a href="tel:+27832663871">083 266 3871</a></div>
@@ -98,7 +98,7 @@ const footer=()=>`</main>
       <a href="/equipment/">Equipment</a>
       <a href="/about/">About</a>
       <a href="/contact/">Contact</a>
-      <a href="/quote/">Get a quote</a>
+      <a href="/quote/">Enquire now</a>
       <a href="/privacy-policy/">Privacy policy</a>
     </div>
     <div class="col c2">
@@ -163,7 +163,7 @@ const cta=({h,p})=>`<section class="cta" aria-labelledby="cta-h">
   <h2 id="cta-h" data-split>${esc(h)}</h2>
   <div class="bar">
     <p>${esc(p)}</p>
-    <div class="row"><a class="btn" href="/quote/">Get a quote${AR}</a><a class="btn ghost" href="tel:+27832970639">Call 083 297 0639</a></div>
+    <div class="row"><a class="btn" href="/quote/">Enquire now${AR}</a><a class="btn ghost" href="tel:+27832970639">Call 083 297 0639</a></div>
   </div>
 </section>`;
 
@@ -215,7 +215,7 @@ const BENEFITS=[
  ['A day, a week or a month','Flexible rental terms and competitive daily and monthly rates.'],
  ['24/7 breakdown support','Downtime costs you money, so when something stops we pick up the phone.']
 ];
-const html=head({title:"Wayne's Plant Hire World | Plant equipment hire in Randfontein, West Rand",desc:'Excavators, dozers, TLBs, tippers and lowbeds for hire in Randfontein. Delivered across the West Rand with an experienced operator. Get a quote on WhatsApp.',path:'/',ld:ldBusiness+ldFaq})
+const html=head({title:"Wayne's Plant Hire World | Plant equipment hire in Randfontein, West Rand",desc:'Excavators, dozers, TLBs, tippers and lowbeds for hire in Randfontein. Delivered across the West Rand with an experienced operator. Enquire now on WhatsApp.',path:'/',ld:ldBusiness+ldFaq})
 +header('home','/')+`
 <section class="hs" id="hs" aria-labelledby="h1" data-dark-top>
   <div class="hx-bg" aria-hidden="true"><video class="hx-vid" muted loop playsinline preload="metadata" poster="/media/hero-aerial.webp" data-autoplay><source src="/media/hero-aerial.mp4" type="video/mp4"></video></div>
@@ -276,7 +276,7 @@ const html=head({title:"Wayne's Plant Hire World | Plant equipment hire in Randf
     <div class="yd">
       <span class="yard" data-yard><i></i><span>Mon to Fri, 07:30 to 17:00</span></span>
       <p>WhatsApp and email enquiries are answered 24 hours.</p>
-      <a class="btn" href="/quote/">Get a quote${AR}</a>
+      <a class="btn" href="/quote/">Enquire now${AR}</a>
     </div>
   </div>
 </section>
@@ -330,7 +330,7 @@ FLEET.forEach((f,i)=>{
   const rel=[...FLEET.filter(x=>x.g===f.g&&x.id!==f.id),...FLEET.filter(x=>x.c===f.c&&x.g!==f.g),...FLEET.filter(x=>x.c!==f.c)].slice(0,4);
   const tiles=[['Power',part(f.hp)],['Weight',part(f.w)],['Top speed',part(f.s)]].filter(t=>t[1]).map(([l,p])=>`<div><b class="num">${p.b}</b><span>${l}${p.u?', '+esc(p.u):''}</span></div>`).join('');
   const msg=`Hi Wayne's, I'm interested in hiring the ${f.n} (${no(f)}). Please can you advise on availability and rates?`;
-  const html=head({title:`${f.n} for hire in Randfontein | Wayne's Plant Hire World`,desc:`${f.n} (${f.t.toLowerCase()}) for hire in Randfontein and the West Rand${f.hp?`, ${f.hp.replace(/\s*\(.*?\)/,'')}`:''}. Experienced operator included. Get a quote from Wayne's Plant Hire World.`,path:url(f),img:`${src(f.img)}`})
+  const html=head({title:`${f.n} for hire in Randfontein | Wayne's Plant Hire World`,desc:`${f.n} (${f.t.toLowerCase()}) for hire in Randfontein and the West Rand${f.hp?`, ${f.hp.replace(/\s*\(.*?\)/,'')}`:''}. Experienced operator included. Enquire now from Wayne's Plant Hire World.`,path:url(f),img:`${src(f.img)}`})
   +header('machine','/equipment/')+`
 <section class="sheet" aria-labelledby="h1">
   <figure class="pic"><img class="ph" src="${src(f.img)}" alt="${esc(f.n)}" style="object-position:${f.pos}" fetchpriority="high"><span class="plate">${no(f)}</span></figure>
@@ -415,15 +415,18 @@ const html=head({title:"Contact Wayne's Plant Hire World | Randfontein, 083 297 
   </div>
   <form id="cf" class="card rv" novalidate>
     <h2>Send a message.</h2>
-    <label>Full name<input type="text" id="c-name" name="name" autocomplete="name" placeholder="Your name"></label>
+    <div class="two">
+      <label>First name<input type="text" id="c-name" name="first_name" autocomplete="given-name" placeholder="First name"></label>
+      <label>Surname<input type="text" id="c-sur" name="last_name" autocomplete="family-name" placeholder="Surname"></label>
+    </div>
     <div class="two">
       <label>Email address<input type="email" id="c-mail" name="email" autocomplete="email" placeholder="you@company.co.za"></label>
       <label>Phone number<input type="tel" id="c-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="082 000 0000"></label>
     </div>
     <label>Subject<input type="text" id="c-sub" name="subject" placeholder="e.g. 20T excavator for two weeks"></label>
     <label>Message<textarea id="c-msg" name="message" placeholder="Tell us about the job and where the site is."></textarea></label>
-    <div class="acts"><button class="btn" type="submit">Send on WhatsApp${AR}</button><a class="btn ghost" id="c-mailto" href="mailto:${MAIL}">Email it instead</a></div>
-    <p class="note" id="c-note">We reply as soon as we can. WhatsApp and email are answered 24 hours.</p>
+    <div class="acts"><button class="btn" type="submit">Enquire now${AR}</button><button class="btn ghost" type="button" id="c-wa">Send on WhatsApp</button></div>
+    <p class="note" id="c-note" role="status" aria-live="polite">We reply as soon as we can. WhatsApp and email are answered 24 hours.</p>
   </form>
 </section>
 <div class="map rv"><iframe title="Map: 46 Steyr Street, Randfontein" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=46%20Steyr%20Street%2C%20Randfontein%2C%20Gauteng&amp;z=14&amp;output=embed"></iframe></div>
@@ -433,9 +436,9 @@ add('/contact/',html);
 
 /* ---------- QUOTE ---------- */
 {
-const html=head({title:"Get a quote | Wayne's Plant Hire World",desc:"Pick your machines, tell us where and when, and send the request to Wayne's on WhatsApp or email. We reply with availability and a rate.",path:'/quote/'})
+const html=head({title:"Enquire now | Wayne's Plant Hire World",desc:"Pick your machines, tell us where and when, and send the request to Wayne's on WhatsApp or email. We reply with availability and a rate.",path:'/quote/'})
 +header('quote','/quote/')
-+pageHead({h1:['Get a quote.'],lead:'Pick the machines, tell us where and when. It lands on our WhatsApp with everything listed, and we reply with availability and a rate.',img:'/img/site/crane-container.webp',pos:'50% 45%',crumbs:[['/','Home'],['/quote/','Get a quote']]})+`
++pageHead({h1:['Enquire now.'],lead:'Pick the machines, tell us where and when. It lands on our WhatsApp with everything listed, and we reply with availability and a rate.',img:'/img/site/crane-container.webp',pos:'50% 45%',crumbs:[['/','Home'],['/quote/','Enquire now']]})+`
 <section class="job" aria-labelledby="qp-h">
   <div class="pick">
     <h2 id="qp-h" data-split>Pick your machines.</h2>
@@ -458,12 +461,16 @@ const html=head({title:"Get a quote | Wayne's Plant Hire World",desc:"Pick your 
       <label>Site or town<input type="text" id="f-site" name="address" placeholder="Randfontein, Mohlakeng…" autocomplete="off"></label>
     </div>
     <div class="two">
-      <label>Your name<input type="text" id="f-name" name="name" autocomplete="name" placeholder="Name"></label>
+      <label>First name<input type="text" id="f-name" name="first_name" autocomplete="given-name" placeholder="First name"></label>
+      <label>Surname<input type="text" id="f-sur" name="last_name" autocomplete="family-name" placeholder="Surname"></label>
+    </div>
+    <div class="two">
+      <label>Email<input type="email" id="f-mail" name="email" autocomplete="email" placeholder="you@company.co.za"></label>
       <label>Phone<input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="082 000 0000"></label>
     </div>
     <label>Anything else?<textarea id="f-note" name="notes" placeholder="How long you need it, access to site, operator needs…"></textarea></label>
-    <div class="acts"><button class="btn" type="submit">Send on WhatsApp${AR}</button><a class="btn ghost" id="send-mail" href="mailto:${MAIL}">Email it instead</a></div>
-    <p class="note" id="q-note">Open Mon to Fri, 07:30 to 17:00. WhatsApp and email are answered 24 hours.</p>
+    <div class="acts"><button class="btn" type="submit">Enquire now${AR}</button><button class="btn ghost" type="button" id="q-wa">Send on WhatsApp</button></div>
+    <p class="note" id="q-note" role="status" aria-live="polite">Open Mon to Fri, 07:30 to 17:00. WhatsApp and email are answered 24 hours.</p>
   </form>
 </section>
 ${mosaic('Out on site.',[['site/excavator-loading.webp','a','Excavator loading a tipper'],['site/d85a-lowbed.webp','b','Komatsu D85A Dozer on our lowbed','50% 60%','d85a'],['site/tlb-rollback-sunrise.webp','c','TLB on the rollback at sunrise','50% 55%'],['site/excavator-branded.webp','d','Excavator on a West Rand site'],['site/ud-truck-operator.webp','e','Our UD truck and operator','50% 55%'],['site/ace-operator.webp','f','Ace Phantom and its operator','55% 50%','phantom']])}
@@ -493,7 +500,7 @@ add('/privacy-policy/',html);
 /* ---------- 404, sitemap, robots, data ---------- */
 out('404.html',head({title:"Page not found | Wayne's Plant Hire World",desc:'This page could not be found.',path:'/404.html'})+header('404','')
 +pageHead({h1:['Wrong turn.'],lead:"That page doesn't exist. The equipment page and the quote page are the best places to start.",crumbs:[['/','Home'],['/404.html','Not found']]})
-+`<div class="wrap" style="padding-bottom:var(--gap);display:flex;gap:16px;flex-wrap:wrap"><a class="btn" href="/equipment/">See the fleet${AR}</a><a class="btn ghost" href="/quote/">Get a quote</a></div>`+footer());
++`<div class="wrap" style="padding-bottom:var(--gap);display:flex;gap:16px;flex-wrap:wrap"><a class="btn" href="/equipment/">See the fleet${AR}</a><a class="btn ghost" href="/quote/">Enquire now</a></div>`+footer());
 out('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(p=>`  <url><loc>${SITE}${p}</loc></url>`).join('\n')}\n</urlset>\n`);
 out('robots.txt',`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 out('assets/js/fleet.js','window.FLEET='+JSON.stringify(FLEET.map(f=>({id:f.id,n:f.n,c:f.c,t:f.t,no:no(f),img:f.img,url:url(f)})))+';\n');

@@ -7,7 +7,9 @@ const G=window.gsap, ST=window.ScrollTrigger;
 const plain=/[?&]plain/.test(location.search);   /* ?plain = layout-only QA view, no motion */
 const ANIM=!!(G&&ST&&!rm&&!plain);
 const F=window.FLEET||[], byId=Object.fromEntries(F.map(f=>[f.id,f]));
-const WA='27832970639', MAIL='zee@waynesplanthireworld.co.za';
+const WA='27832970639';
+/* Hustlery GHL inbound webhook: paste the workflow's Inbound Webhook URL here */
+const GHL_HOOK='';
 const page=document.body.dataset.page, qs=new URLSearchParams(location.search);
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v);}catch(_){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}};
 
@@ -38,6 +40,16 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(
 document.addEventListener('click',e=>{const btn=e.target.closest('.mc-cat[data-filter]');if(!btn)return;e.preventDefault();e.stopPropagation();const cat=btn.dataset.filter;if(page==='equipment'){const chip=$$('.chip[data-cat]').find(c=>c.dataset.cat===cat);if(chip)chip.click();}else{location.href='/equipment/?g='+encodeURIComponent(cat);}});
 addEventListener('storage',e=>{if(e.key===KEY){chosen=new Set(store.get(KEY,[]));paint();}});
 paint();
+/* post a lead to the GHL webhook; form-encoded so the browser sends it without a CORS preflight */
+const sendHook=data=>{
+  if(!GHL_HOOK)return Promise.reject(new Error('no-hook'));
+  const body=new URLSearchParams({...data,source:'website',page:location.pathname,submitted_at:new Date().toISOString()});
+  return fetch(GHL_HOOK,{method:'POST',mode:'no-cors',body,keepalive:true});
+};
+const say=(el,t,k)=>{el.textContent=t;el.classList.remove('err','ok');if(k)el.classList.add(k);};
+const need=(fields,note)=>{fields.forEach(f=>f.classList.remove('bad'));const miss=fields.filter(f=>!f.value.trim());if(!miss.length)return true;miss.forEach(f=>f.classList.add('bad'));say(note,'Please fill in: '+miss.map(f=>f.closest('label').firstChild.textContent.trim()).join(', ')+'.','err');miss[0].focus();return false;};
+const mailOk=(el,note)=>{if(!el.value.trim()||/^\S+@\S+\.\S+$/.test(el.value.trim()))return true;el.classList.add('bad');say(note,'That email address does not look right.','err');el.focus();return false;};
+const busy=(form,on,label)=>{const b=form.querySelector('[type=submit]');if(!b)return;if(on){b.dataset.t=b.innerHTML;b.disabled=true;b.textContent=label||'Sending…';}else{b.disabled=false;b.innerHTML=b.dataset.t;}};
 const lead=method=>{(window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',method});if(window.fbq)try{fbq('track','Lead')}catch(_){}};
 
 /* ---------- nav + menu ---------- */
@@ -190,9 +202,9 @@ if(page==='quote'){
   const box=$('#sel-box'),note=$('#q-note'),g=id=>$(id).value.trim();
   const msg=()=>{
     const ms=F.filter(f=>chosen.has(f.id)).map(f=>`${f.n} (${f.no})`).join(', ')||'(not sure yet, please advise)';
-    return `Hi Wayne's, I'd like a quote.\nMachines: ${ms}\nStart date: ${g('#f-date')||'flexible'}\nSite: ${g('#f-site')||'-'}\nName: ${g('#f-name')||'-'}\nPhone: ${g('#f-phone')||'-'}\nNotes: ${g('#f-note')||'-'}`;
+    return `Hi Wayne's, I'd like a quote.\nMachines: ${ms}\nStart date: ${g('#f-date')||'flexible'}\nSite: ${g('#f-site')||'-'}\nName: ${(g('#f-name')+' '+g('#f-sur')).trim()||'-'}\nEmail: ${g('#f-mail')||'-'}\nPhone: ${g('#f-phone')||'-'}\nNotes: ${g('#f-note')||'-'}`;
   };
-  const mail=()=>{$('#q-msg').value=msg();$('#send-mail').href='mailto:'+MAIL+'?subject='+encodeURIComponent('Plant hire quote request')+'&body='+encodeURIComponent(msg());};
+  const mail=()=>{$('#q-msg').value=msg();};
   const render=()=>{
     box.innerHTML='';
     const sel=F.filter(f=>chosen.has(f.id));
@@ -203,25 +215,36 @@ if(page==='quote'){
   };
   subs.push(render);render();
   const d0=store.get('wph.date','');if(d0&&!$('#f-date').value)$('#f-date').value=d0;
-  ['#f-date','#f-site','#f-name','#f-phone','#f-note'].forEach(s=>$(s).addEventListener('input',mail));
-  $('#qf').addEventListener('submit',e=>{
-    e.preventDefault();
-    if(!g('#f-phone')){note.textContent='Add a phone number so we can reply.';$('#f-phone').focus();return;}
-    lead('whatsapp_quote');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');
+  ['#f-date','#f-site','#f-name','#f-sur','#f-mail','#f-phone','#f-note'].forEach(s=>$(s).addEventListener('input',mail));
+  const ok=()=>need(['#f-name','#f-sur','#f-mail','#f-phone'].map(x=>$(x)),note)&&mailOk($('#f-mail'),note);
+  const qf=$('#qf');
+  qf.addEventListener('submit',e=>{
+    e.preventDefault();if(!ok())return;
+    busy(qf,true);
+    sendHook({form:'enquiry',first_name:g('#f-name'),last_name:g('#f-sur'),email:g('#f-mail'),phone:g('#f-phone'),machines:F.filter(f=>chosen.has(f.id)).map(f=>`${f.n} (${f.no})`).join(', '),start_date:g('#f-date'),site:g('#f-site'),notes:g('#f-note'),message:msg()})
+      .then(()=>{lead('enquiry_quote');say(note,"Thanks, your enquiry is in. We'll be in touch shortly.",'ok');qf.reset();chosen.clear();store.set(KEY,[]);paint();})
+      .catch(err=>{say(note,err.message==='no-hook'?'Online enquiries are not connected yet. Please use Send on WhatsApp for now.':'That did not send. Please try Send on WhatsApp.','err');})
+      .finally(()=>busy(qf,false));
   });
+  $('#q-wa').addEventListener('click',()=>{if(!ok())return;lead('whatsapp_quote');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');});
 }
 
 /* ---------- contact page ---------- */
 if(page==='contact'){
   const g=id=>$(id).value.trim();
-  const msg=()=>`Hi Wayne's, ${g('#c-sub')||'I have an enquiry'}.\n${g('#c-msg')}\nName: ${g('#c-name')||'-'}\nPhone: ${g('#c-phone')||'-'}\nEmail: ${g('#c-mail')||'-'}`;
-  const mail=()=>{$('#c-mailto').href='mailto:'+MAIL+'?subject='+encodeURIComponent(g('#c-sub')||'Website enquiry')+'&body='+encodeURIComponent(msg());};
-  ['#c-name','#c-mail','#c-phone','#c-sub','#c-msg'].forEach(s=>$(s).addEventListener('input',mail));
-  $('#cf').addEventListener('submit',e=>{
-    e.preventDefault();
-    if(!g('#c-name')||(!g('#c-phone')&&!g('#c-mail'))){$('#c-note').textContent='Add your name and a phone number or email so we can reply.';$('#c-name').focus();return;}
-    lead('whatsapp_contact');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');
+  const msg=()=>`Hi Wayne's, ${g('#c-sub')||'I have an enquiry'}.\n${g('#c-msg')}\nName: ${(g('#c-name')+' '+g('#c-sur')).trim()||'-'}\nPhone: ${g('#c-phone')||'-'}\nEmail: ${g('#c-mail')||'-'}`;
+  const cn=$('#c-note');
+  const ok=()=>need(['#c-name','#c-sur','#c-mail','#c-phone'].map(x=>$(x)),cn)&&mailOk($('#c-mail'),cn);
+  const cf=$('#cf');
+  cf.addEventListener('submit',e=>{
+    e.preventDefault();if(!ok())return;
+    busy(cf,true);
+    sendHook({form:'contact',first_name:g('#c-name'),last_name:g('#c-sur'),email:g('#c-mail'),phone:g('#c-phone'),subject:g('#c-sub'),message:g('#c-msg')})
+      .then(()=>{lead('enquiry_contact');say(cn,"Thanks, your enquiry is in. We'll be in touch shortly.",'ok');cf.reset();})
+      .catch(err=>{say(cn,err.message==='no-hook'?'Online enquiries are not connected yet. Please use Send on WhatsApp for now.':'That did not send. Please try Send on WhatsApp.','err');})
+      .finally(()=>busy(cf,false));
   });
+  $('#c-wa').addEventListener('click',()=>{if(!ok())return;lead('whatsapp_contact');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank','noopener');});
 }
 
 /* ---------- motion ---------- */

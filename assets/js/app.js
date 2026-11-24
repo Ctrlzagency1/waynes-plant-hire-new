@@ -86,14 +86,24 @@ menu.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false);});
 addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
 addEventListener('resize',()=>{if(innerWidth>1100)setMenu(false);});
 
+/* ---------- holiday closing: 21 Dec 2026 to 4 Jan 2027 (SAST); banner hides itself from 5 Jan ---------- */
+const HOL_START=Date.parse('2026-12-21T00:00:00+02:00'),HOL_END=Date.parse('2027-01-05T00:00:00+02:00');
+const inHol=()=>{const t=Date.now();return t>=HOL_START&&t<HOL_END;};
+const hol=$('#hol');
+if(hol&&Date.now()<HOL_END){
+  hol.hidden=false;document.documentElement.classList.add('has-hol');
+  const fit=()=>document.documentElement.style.setProperty('--hb',hol.offsetHeight+'px');
+  fit();addEventListener('resize',fit);
+}
 /* ---------- live yard status (South African time) ---------- */
 const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 function yardNow(){
   const p=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Johannesburg',weekday:'long',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).map(x=>[x.type,x.value]));
   const d=DAYS.indexOf(p.weekday),m=+p.hour*60+ +p.minute,wk=d>=1&&d<=5;
-  const open=wk&&m>=450&&m<1020;
+  const open=wk&&m>=450&&m<1020&&!inHol();
   let short,long;
   if(open){const left=1020-m,h=Math.floor(left/60),mn=left%60;short='Yard open now, closes 17:00';long=`The yard is open. Closes at 17:00, in ${h?h+' h ':''}${mn} min.`;}
+  else if(inHol()){short='Closed for the holidays until 4 January';long='The yard is closed for the holidays until Monday 4 January 2027. WhatsApp is still answered.';}
   else{
     const when=wk&&m<450?'today':(d>=1&&d<=4?'tomorrow':'Monday');
     short=`Yard closed, opens ${when} 07:30`;long=`The yard is closed. Opens ${when} at 07:30. WhatsApp is answered 24 hours.`;

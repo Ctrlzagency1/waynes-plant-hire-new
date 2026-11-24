@@ -631,6 +631,12 @@ form.card .bad{outline:2px solid #F04438}
 /* ================= structure pass (after yellowlista.co.za): search first, browse by type, sidebar shop ================= */
 .site-h{position:fixed;inset:0 0 auto;z-index:50}
 .site-h .nav{position:relative;inset:auto}
+.hol{background:var(--amber);color:var(--navy);padding:9px var(--m);font-size:14px;line-height:1.4;text-align:center}
+.hol p{margin:0}
+@media (max-width:700px){.hol{font-size:13px;padding-block:7px}.hol .hol-x{display:none}}.hol b{font-weight:700}
+html.has-hol body{padding-top:var(--hb,0px)}
+html.has-hol .site-h{top:0}
+html.has-hol .menu{padding-top:calc(110px + var(--hb,0px))}
 .topbar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:8px var(--m);background:var(--navy);color:#C9D3E3;font-size:14px}
 .topbar a{color:var(--white);font-weight:600;text-decoration:none}
 .topbar a:hover{color:var(--amber)}
